@@ -22,13 +22,6 @@ public class SælgerEndpoint {
         Crypter crypter = new Crypter();
         DbManager db = new DbManager();
 
-        @POST
-        @Path("/creatNewSælger")
-        public Response creatNewSælger() throws SQLException{
-             return  Response.status(200).type("application/json").entity("Alt gik som det skulle").build();
-
-        }
-
         @GET
         public Response loadSælgere() throws SQLException{
                 ArrayList<Sælger> sælgere = db.loadSælger();
@@ -42,5 +35,13 @@ public class SælgerEndpoint {
                         return Response.status(204).type("text/plain").entity("ingen sælgere").build();
                 }
         }
+
+        @POST
+        @Path("/creatNewSælger")
+        public Response creatNewSælger() throws SQLException{
+             return  Response.status(200).type("application/json").entity("Alt gik som det skulle").build();
+
+        }
+
 
 }
