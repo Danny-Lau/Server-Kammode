@@ -13,10 +13,8 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 
 
-public class BrugerEndpoint {
-
     @Path("/bruger")
-    public class UserEndpoint {
+    public class  BrugerEndpoint  {
         MainController mainController = new MainController();
         TokenController tokenController = new TokenController();
 
@@ -91,4 +89,4 @@ public class BrugerEndpoint {
 
         }
     }
-}
+
