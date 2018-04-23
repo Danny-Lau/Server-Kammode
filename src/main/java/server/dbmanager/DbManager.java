@@ -237,6 +237,8 @@ public class DbManager {
 
     }
 
+
+
     public Bruger getTimeCreatedByUsername(String username) {
         Bruger bruger = null;
         ResultSet resultSet = null;
