@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf3b246d-e45d-461b-9dbe-da70057ad5f2" name="Default" comment="get spesfik ordre fra et ID">
+    <list default="true" id="cf3b246d-e45d-461b-9dbe-da70057ad5f2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -527,7 +527,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523957672188</updated>
       <workItem from="1523957673751" duration="1283000" />
-      <workItem from="1524472875571" duration="3164000" />
+      <workItem from="1524472875571" duration="3185000" />
     </task>
     <task id="LOCAL-00001" summary="Rettet STOR fejl">
       <created>1523958821810</created>
@@ -564,11 +564,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524475791428</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="oprettelse af vare opejkt">
+      <created>1524476082017</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524476082017</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4556000" />
+    <option name="totallyTimeSpent" value="4577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -651,7 +658,8 @@
     <MESSAGE value="oprettelse af ordre objekt." />
     <MESSAGE value="oprettelse af ordre endpoint og prepstaitment." />
     <MESSAGE value="get spesfik ordre fra et ID" />
-    <option name="LAST_COMMIT_MESSAGE" value="get spesfik ordre fra et ID" />
+    <MESSAGE value="oprettelse af vare opejkt" />
+    <option name="LAST_COMMIT_MESSAGE" value="oprettelse af vare opejkt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
