@@ -1,6 +1,5 @@
 package server.dbmanager;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud;
 import server.models.*;
 import server.utility.Crypter;
 import server.utility.Globals;
@@ -236,6 +235,64 @@ public class DbManager {
         }
         return userFromToken;
 
+    }
+
+    public ArrayList<Vare> loadAlleVare(){
+        ResultSet resultSet = null;
+        ArrayList<Vare> allVare = new ArrayList<Vare>();
+        try{
+            PreparedStatement loadVare = connection.prepareStatement("SELECT * FROM vare");
+            resultSet = loadVare.executeQuery();
+            while (resultSet.next()){
+                Vare vare = new Vare();
+                vare.setVare_id(resultSet.getInt("vare_id"));
+                vare.setAntal(resultSet.getInt("antal"));
+                vare.setPris(resultSet.getString("pris"));
+                vare.setSælger_sælger_id(resultSet.getInt("sælger_sælger_id"));
+                vare.setVare_beskrivelse(resultSet.getString("vare_beskrivelse"));
+                vare.setVariant_1(resultSet.getString("variant_1"));
+                allVare.add(vare);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return allVare;
+    }
+
+    public ArrayList<Vare> loadVareBySælgerID(int sælgerId){
+        ResultSet resultSet = null;
+        ArrayList<Vare> allVareBySælgerId = new ArrayList<Vare>();
+        try{
+            PreparedStatement loadVareBySælgerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
+
+            loadVareBySælgerID.setInt(1, sælgerId);
+            resultSet = loadVareBySælgerID.executeQuery();
+            while (resultSet.next()){
+                Vare vare = new Vare();
+                vare.setVare_id(resultSet.getInt("vare_id"));
+                vare.setAntal(resultSet.getInt("antal"));
+                vare.setPris(resultSet.getString("pris"));
+                vare.setSælger_sælger_id(resultSet.getInt("sælger_sælger_id"));
+                vare.setVare_beskrivelse(resultSet.getString("vare_beskrivelse"));
+                vare.setVariant_1(resultSet.getString("variant_1"));
+                allVareBySælgerId.add(vare);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return allVareBySælgerId;
     }
 
     public ArrayList<Ordre> loadOrdre(){

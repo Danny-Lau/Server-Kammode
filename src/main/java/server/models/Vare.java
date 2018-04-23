@@ -1,10 +1,10 @@
 package server.models;
 
-public class vare {
+public class Vare {
    String vare_beskrivelse,  pris, variant_1;
    int vare_id, sælger_sælger_id, antal;
 
-    public vare(String vare_beskrivelse, String pris, String variant_1, int vare_id, int sælger_sælger_id, int antal) {
+    public Vare(String vare_beskrivelse, String pris, String variant_1, int vare_id, int sælger_sælger_id, int antal) {
         this.vare_beskrivelse = vare_beskrivelse;
         this.pris = pris;
         this.variant_1 = variant_1;
@@ -14,7 +14,7 @@ public class vare {
     }
 
 
-    public vare() {
+    public Vare() {
     }
 
     public String getVare_beskrivelse() {

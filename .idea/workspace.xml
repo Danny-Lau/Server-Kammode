@@ -7,7 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf3b246d-e45d-461b-9dbe-da70057ad5f2" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/server/models/vare.java" afterPath="$PROJECT_DIR$/src/main/java/server/models/Vare.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Peter.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Peter.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,8 +46,8 @@
       <file leaf-file-name="DbManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1479">
-              <caret line="281" column="72" lean-forward="false" selection-start-line="281" selection-start-column="72" selection-end-line="281" selection-end-column="72" />
+            <state relative-caret-position="338">
+              <caret line="267" column="59" lean-forward="false" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
               <folding>
                 <element signature="method#DbManager#0;class#DbManager#0" expanded="false" />
                 <element signature="method#close#0;class#DbManager#0" expanded="false" />
@@ -54,19 +57,26 @@
                 <element signature="method#loadSælger#0;class#DbManager#0" expanded="false" />
                 <element signature="method#createToken#0;class#DbManager#0" expanded="false" />
                 <element signature="method#deleteToken#0;class#DbManager#0" expanded="false" />
-                <element signature="method#loadOrdre#0;class#DbManager#0" expanded="false" />
+                <element signature="method#getUserFromToken#0;class#DbManager#0" expanded="false" />
+                <element signature="method#loadAlleVare#0;class#DbManager#0" expanded="false" />
+                <element signature="e#9494#9500#0" expanded="true" />
+                <element signature="method#loadVareBySælgerID#0;class#DbManager#0" expanded="false" />
+                <element signature="e#10743#10749#0" expanded="true" />
                 <element signature="method#getTimeCreatedByUsername#0;class#DbManager#0" expanded="false" />
-                <marker date="1524475765536" expanded="true" signature="1810:1867" ph="SELECT * fro... Bruger" />
-                <marker date="1524475765536" expanded="true" signature="3510:3582" ph="INSERT INTO User... " />
-                <marker date="1524475765536" expanded="true" signature="4733:4830" ph="INSERT INTO `sælger`... " />
-                <marker date="1524475765536" expanded="true" signature="6080:6100" ph="SELECT * FRO... sælger" />
-                <marker date="1524475765536" expanded="true" signature="7284:7338" ph="INSERT INTO Tokens... " />
-                <marker date="1524475765536" expanded="true" signature="7773:7815" ph="DELETE FROM " />
-                <marker date="1524475765536" expanded="true" signature="8423:8568" ph="SELECT user_... Bruger" />
-                <marker date="1524475765536" expanded="true" signature="9630:9649" ph="SELECT * FRO... ordre" />
-                <marker date="1524475765536" expanded="true" signature="10679:10686" ph="SELECT bruge... Bruger" />
-                <marker date="1524475765536" expanded="true" signature="10679:10712" ph="SELECT * ord... " />
-                <marker date="1524475765536" expanded="true" signature="11711:11748" ph="SELECT * FRO... User" />
+                <marker date="1524486386126" expanded="true" signature="1767:1824" ph="SELECT * fro... Bruger" />
+                <marker date="1524486386126" expanded="true" signature="3467:3539" ph="INSERT INTO User... " />
+                <marker date="1524486386126" expanded="true" signature="4690:4787" ph="INSERT INTO `sælger`... " />
+                <marker date="1524486386126" expanded="true" signature="6037:6057" ph="SELECT * FRO... sælger" />
+                <marker date="1524486386126" expanded="true" signature="7241:7295" ph="INSERT INTO Tokens... " />
+                <marker date="1524486386126" expanded="true" signature="7730:7772" ph="DELETE FROM " />
+                <marker date="1524486386126" expanded="true" signature="8380:8525" ph="SELECT user_... Bruger" />
+                <marker date="1524486386126" expanded="true" signature="9587:9601" ph="SELECT * FRO... ordre" />
+                <marker date="1524486386126" expanded="true" signature="9587:9605" ph="SELECT * FRO... vare" />
+                <marker date="1524486386126" expanded="true" signature="10846:10891" ph="SELECT * FRO... vare" />
+                <marker date="1524486386126" expanded="true" signature="12178:12197" ph="SELECT * FRO... ordre" />
+                <marker date="1524486386126" expanded="true" signature="13227:13234" ph="SELECT bruge... Bruger" />
+                <marker date="1524486386126" expanded="true" signature="13227:13260" ph="SELECT * ord... " />
+                <marker date="1524486386126" expanded="true" signature="14259:14296" ph="SELECT * FRO... User" />
               </folding>
             </state>
           </provider>
@@ -75,8 +85,8 @@
       <file leaf-file-name="OrdreEndpoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+            <state relative-caret-position="158">
+              <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,37 +94,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vare.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/models/vare.java">
+      <file leaf-file-name="VareEndpoint.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/VareEndpoint.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="e#549#550#0" expanded="true" />
-                <element signature="e#588#589#0" expanded="true" />
-                <element signature="e#652#653#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#766#767#0" expanded="true" />
-                <element signature="e#806#807#0" expanded="true" />
-                <element signature="e#838#839#0" expanded="true" />
-                <element signature="e#874#875#0" expanded="true" />
-                <element signature="e#906#907#0" expanded="true" />
-                <element signature="e#956#957#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
-                <element signature="e#1029#1030#0" expanded="true" />
-                <element signature="e#1059#1060#0" expanded="true" />
-                <element signature="e#1102#1103#0" expanded="true" />
-                <element signature="e#1140#1141#0" expanded="true" />
-                <element signature="e#1180#1181#0" expanded="true" />
-                <element signature="e#1219#1220#0" expanded="true" />
-                <element signature="e#1280#1281#0" expanded="true" />
-                <element signature="e#1336#1337#0" expanded="true" />
-                <element signature="e#1365#1366#0" expanded="true" />
-                <element signature="e#1393#1394#0" expanded="true" />
-                <element signature="e#1432#1433#0" expanded="true" />
-                <element signature="e#1466#1467#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="294">
+              <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Vare.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Vare.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -124,20 +119,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#337#338#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-                <element signature="e#419#420#0" expanded="true" />
-                <element signature="e#461#462#0" expanded="true" />
-                <element signature="e#497#498#0" expanded="true" />
-                <element signature="e#529#530#0" expanded="true" />
-                <element signature="e#579#580#0" expanded="true" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#652#653#0" expanded="true" />
-                <element signature="e#682#683#0" expanded="true" />
-                <element signature="e#725#726#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,9 +148,10 @@
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/BrugerEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/SælgerEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/models/Ordre.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/models/vare.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/endpoints/VareEndpoint.java" />
       </list>
     </option>
   </component>
@@ -527,7 +510,7 @@
       <updated>1523957672188</updated>
       <workItem from="1523957673751" duration="1283000" />
       <workItem from="1524472875571" duration="3208000" />
-      <workItem from="1524482198215" duration="17000" />
+      <workItem from="1524482198215" duration="2760000" />
     </task>
     <task id="LOCAL-00001" summary="Rettet STOR fejl">
       <created>1523958821810</created>
@@ -578,39 +561,47 @@
       <option name="project" value="LOCAL" />
       <updated>1524476089435</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="oprettelse af vare opejkt">
+      <created>1524482259176</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1524482259176</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4617000" />
+    <option name="totallyTimeSpent" value="7360000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489019" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -618,7 +609,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -669,11 +659,12 @@
     <option name="LAST_COMMIT_MESSAGE" value="oprettelse af vare opejkt" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Result.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Quiz.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/OptionEndpoint.java" />
@@ -762,62 +753,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Ordre.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#337#338#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#461#462#0" expanded="true" />
-            <element signature="e#497#498#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#579#580#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#725#726#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SælgerEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="36" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="281" column="72" lean-forward="false" selection-start-line="281" selection-start-column="72" selection-end-line="281" selection-end-column="72" />
-          <folding>
-            <element signature="method#DbManager#0;class#DbManager#0" expanded="false" />
-            <element signature="method#close#0;class#DbManager#0" expanded="false" />
-            <element signature="method#authorizeUser#0;class#DbManager#0" expanded="false" />
-            <element signature="method#createUser#0;class#DbManager#0" expanded="false" />
-            <element signature="method#creatSælger#0;class#DbManager#0" expanded="false" />
-            <element signature="method#loadSælger#0;class#DbManager#0" expanded="false" />
-            <element signature="method#createToken#0;class#DbManager#0" expanded="false" />
-            <element signature="method#deleteToken#0;class#DbManager#0" expanded="false" />
-            <element signature="method#loadOrdre#0;class#DbManager#0" expanded="false" />
-            <element signature="method#getTimeCreatedByUsername#0;class#DbManager#0" expanded="false" />
-            <marker date="1524475765536" expanded="true" signature="1810:1867" ph="SELECT * fro... Bruger" />
-            <marker date="1524475765536" expanded="true" signature="3510:3582" ph="INSERT INTO User... " />
-            <marker date="1524475765536" expanded="true" signature="4733:4830" ph="INSERT INTO `sælger`... " />
-            <marker date="1524475765536" expanded="true" signature="6080:6100" ph="SELECT * FRO... sælger" />
-            <marker date="1524475765536" expanded="true" signature="7284:7338" ph="INSERT INTO Tokens... " />
-            <marker date="1524475765536" expanded="true" signature="7773:7815" ph="DELETE FROM " />
-            <marker date="1524475765536" expanded="true" signature="8423:8568" ph="SELECT user_... Bruger" />
-            <marker date="1524475765536" expanded="true" signature="9630:9649" ph="SELECT * FRO... ordre" />
-            <marker date="1524475765536" expanded="true" signature="10679:10686" ph="SELECT bruge... Bruger" />
-            <marker date="1524475765536" expanded="true" signature="10679:10712" ph="SELECT * ord... " />
-            <marker date="1524475765536" expanded="true" signature="11711:11748" ph="SELECT * FRO... User" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -829,46 +769,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Ordre.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        <state relative-caret-position="158">
+          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/vare.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Vare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="267" column="59" lean-forward="false" selection-start-line="267" selection-start-column="59" selection-end-line="267" selection-end-column="59" />
           <folding>
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#766#767#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#906#907#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1102#1103#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-            <element signature="e#1219#1220#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-            <element signature="e#1336#1337#0" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1393#1394#0" expanded="true" />
-            <element signature="e#1432#1433#0" expanded="true" />
-            <element signature="e#1466#1467#0" expanded="true" />
+            <element signature="method#DbManager#0;class#DbManager#0" expanded="false" />
+            <element signature="method#close#0;class#DbManager#0" expanded="false" />
+            <element signature="method#authorizeUser#0;class#DbManager#0" expanded="false" />
+            <element signature="method#createUser#0;class#DbManager#0" expanded="false" />
+            <element signature="method#creatSælger#0;class#DbManager#0" expanded="false" />
+            <element signature="method#loadSælger#0;class#DbManager#0" expanded="false" />
+            <element signature="method#createToken#0;class#DbManager#0" expanded="false" />
+            <element signature="method#deleteToken#0;class#DbManager#0" expanded="false" />
+            <element signature="method#getUserFromToken#0;class#DbManager#0" expanded="false" />
+            <element signature="method#loadAlleVare#0;class#DbManager#0" expanded="false" />
+            <element signature="e#9494#9500#0" expanded="true" />
+            <element signature="method#loadVareBySælgerID#0;class#DbManager#0" expanded="false" />
+            <element signature="e#10743#10749#0" expanded="true" />
+            <element signature="method#getTimeCreatedByUsername#0;class#DbManager#0" expanded="false" />
+            <marker date="1524486386126" expanded="true" signature="1767:1824" ph="SELECT * fro... Bruger" />
+            <marker date="1524486386126" expanded="true" signature="3467:3539" ph="INSERT INTO User... " />
+            <marker date="1524486386126" expanded="true" signature="4690:4787" ph="INSERT INTO `sælger`... " />
+            <marker date="1524486386126" expanded="true" signature="6037:6057" ph="SELECT * FRO... sælger" />
+            <marker date="1524486386126" expanded="true" signature="7241:7295" ph="INSERT INTO Tokens... " />
+            <marker date="1524486386126" expanded="true" signature="7730:7772" ph="DELETE FROM " />
+            <marker date="1524486386126" expanded="true" signature="8380:8525" ph="SELECT user_... Bruger" />
+            <marker date="1524486386126" expanded="true" signature="9587:9601" ph="SELECT * FRO... ordre" />
+            <marker date="1524486386126" expanded="true" signature="9587:9605" ph="SELECT * FRO... vare" />
+            <marker date="1524486386126" expanded="true" signature="10846:10891" ph="SELECT * FRO... vare" />
+            <marker date="1524486386126" expanded="true" signature="12178:12197" ph="SELECT * FRO... ordre" />
+            <marker date="1524486386126" expanded="true" signature="13227:13234" ph="SELECT bruge... Bruger" />
+            <marker date="1524486386126" expanded="true" signature="13227:13260" ph="SELECT * ord... " />
+            <marker date="1524486386126" expanded="true" signature="14259:14296" ph="SELECT * FRO... User" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/VareEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="37" column="8" lean-forward="true" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
