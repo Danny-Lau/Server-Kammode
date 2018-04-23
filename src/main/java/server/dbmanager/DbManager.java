@@ -1,5 +1,6 @@
 package server.dbmanager;
 
+import com.mysql.cj.x.protobuf.MysqlxCrud;
 import server.models.*;
 import server.utility.Crypter;
 import server.utility.Globals;
@@ -260,6 +261,41 @@ public class DbManager {
                 exception.printStackTrace();
                 close();
             } }return ordrer;
+    }
+
+    public Ordre getOrderFromId(int ordreID) throws SQLException{
+        ResultSet resultSet = null;
+        Ordre ordre = null;
+
+        try {
+            PreparedStatement getOrderFromId = connection
+                    .prepareStatement("SELECT * ordre WHERE ordre_Id = ?");
+
+            getOrderFromId.setInt(1, ordreID);
+
+            resultSet = getOrderFromId.executeQuery();
+
+            while (resultSet.next()) {
+                ordre = new Ordre();
+                ordre.setOrdreID(resultSet.getInt("ordre_Id"));
+                ordre.setOrdreDato(resultSet.getString("ordre_date"));
+                ordre.setOrdrePris(resultSet.getString("total_ordre_pris"));
+
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            }
+        }
+        return ordre;
+
+
+
     }
 
     public Bruger getTimeCreatedByUsername(String username) {
