@@ -237,7 +237,30 @@ public class DbManager {
 
     }
 
-
+    public ArrayList<Ordre> loadOrdre(){
+        ResultSet resultSet = null;
+        ArrayList<Ordre> ordrer = new ArrayList<Ordre>();
+        try{
+            PreparedStatement loadOrdre = connection.prepareStatement("SELECT * FROM ordre");
+            resultSet = loadOrdre.executeQuery();
+            while (resultSet.next()){
+                Ordre ordre = new Ordre();
+                ordre.setOrdreID(resultSet.getInt("ordre_id"));
+                ordre.setOrdreDato(resultSet.getString("ordre_date"));
+                ordre.setOrdrePris(resultSet.getString("total_ordre_pris"));
+                ordrer.add(ordre);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return ordrer;
+    }
 
     public Bruger getTimeCreatedByUsername(String username) {
         Bruger bruger = null;
