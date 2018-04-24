@@ -4,7 +4,7 @@ package server.endpoints;
         import com.google.gson.Gson;
         import server.controller.TokenController;
         import server.dbmanager.DbManager;
-        import server.models.Sælger;
+        import server.models.Seller;
         import server.utility.Crypter;
         import server.utility.Globals;
 
@@ -16,7 +16,7 @@ package server.endpoints;
         import java.util.ArrayList;
 
 @Path("/sælger")
-public class SælgerEndpoint {
+public class SellerEndpoint {
 
         TokenController tokenController = new TokenController();
         Crypter crypter = new Crypter();
@@ -24,7 +24,7 @@ public class SælgerEndpoint {
 
         @GET
         public Response loadSælgere() throws SQLException{
-                ArrayList<Sælger> sælgere = db.loadSælger();
+                ArrayList<Seller> sælgere = db.loadSælger();
                 String loadedSælgere = new Gson().toJson(sælgere);
 
                 if(sælgere != null){

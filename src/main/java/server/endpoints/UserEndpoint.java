@@ -3,7 +3,7 @@ package server.endpoints;
 import com.google.gson.Gson;
 import server.controller.MainController;
 import server.controller.TokenController;
-import server.models.Bruger;
+import server.models.User;
 import server.utility.Crypter;
 import server.utility.CurrentUserContext;
 import server.utility.Globals;
@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 
     @Path("/bruger")
-    public class  BrugerEndpoint  {
+    public class UserEndpoint {
         MainController mainController = new MainController();
         TokenController tokenController = new TokenController();
 
@@ -22,9 +22,9 @@ import java.sql.SQLException;
 
         @POST
         @Path("/login")
-        //Endpoint for authorizing a bruger
-        public Response logIn(String bruger) {
-            String authorizedUser = mainController.authUser(new Gson().fromJson(bruger, Bruger.class));
+        //Endpoint for authorizing a User
+        public Response logIn(String user) {
+            String authorizedUser = mainController.authUser(new Gson().fromJson(user, User.class));
             String myUser = new Gson().toJson(authorizedUser);
             myUser = crypter.encryptAndDecryptXor(myUser);
 
@@ -41,7 +41,7 @@ import java.sql.SQLException;
         @Path("/signup")
         //Creating a new user
         public Response signUp(String user) {
-            Bruger createdUser = mainController.createUser(new Gson().fromJson(user, Bruger.class));
+            User createdUser = mainController.createUser(new Gson().fromJson(user, User.class));
             String newUser = new Gson().toJson(createdUser);
             newUser = crypter.encryptAndDecryptXor(newUser);
 

@@ -40,10 +40,10 @@ public class DbManager {
     }
 
     //Method for authorizing the user. Prepared statement are used, and a user object is returned.
-    public Bruger authorizeUser(String username, String password) throws IllegalArgumentException {
+    public User authorizeUser(String username, String password) throws IllegalArgumentException {
         //ResultSet and User to temporary contain values from SQL statement
         ResultSet resultSet = null;
-        Bruger bruger = null;
+        User user = null;
         //Try-catch method to avoid the program crashing on exceptions
         try {
             //SQL statement
@@ -58,13 +58,13 @@ public class DbManager {
 
             //Method will run as long as there is content in the next line of the resultSet
             while (resultSet.next()) {
-                bruger = new Bruger();
-                bruger.setBrugerId(resultSet.getInt("bruger_id"));
-                bruger.setUserName(resultSet.getString("user_name"));
-                bruger.setPassword(resultSet.getString("password"));
-                bruger.setMail(resultSet.getString("mail"));
-                bruger.setType(resultSet.getInt("type"));
-                bruger.setTimeCreated(resultSet.getLong("time_created"));
+                user = new User();
+                user.setBrugerId(resultSet.getInt("bruger_id"));
+                user.setUsername(resultSet.getString("user_name"));
+                user.setPassword(resultSet.getString("password"));
+                user.setMail(resultSet.getString("mail"));
+                user.setType(resultSet.getInt("type"));
+                user.setTimeCreated(resultSet.getLong("time_created"));
 
             }
             //Exception to avoid crashing
@@ -79,17 +79,17 @@ public class DbManager {
                 close();
             }
         }
-        return bruger;
+        return user;
     }
 
     // Method for creating a user - Boolean returned, which decides if the user is created or not
-    public Bruger createUser(Bruger bruger) throws IllegalArgumentException {
+    public User createUser(User user) throws IllegalArgumentException {
         //Try-catch method to avoid the program crashing on exceptions
         try {
             PreparedStatement createUser = connection.prepareStatement("INSERT INTO User (username, password, time_created, mail) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            createUser.setString(1, bruger.getUserName());
-            createUser.setString(2, bruger.getPassword());
-            createUser.setLong(3, bruger.getTimeCreated());
+            createUser.setString(1, user.getUsername());
+            createUser.setString(2, user.getPassword());
+            createUser.setLong(3, user.getTimeCreated());
 
             //rowsAffected
             int rowsAffected = createUser.executeUpdate();
@@ -97,12 +97,12 @@ public class DbManager {
                 ResultSet rs = createUser.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     int autoIncrementedUserId = rs.getInt(1);
-                    bruger.setBrugerId(autoIncrementedUserId);
+                    user.setBrugerId(autoIncrementedUserId);
                 } else {
-                    bruger = null;
+                    user = null;
                 }
-                bruger.setType(2);
-                return bruger;
+                user.setType(2);
+                return user;
             }
             //Exception to avoid crashing
         } catch (SQLException exception) {
@@ -113,19 +113,19 @@ public class DbManager {
     }
 
 
-    public Sælger creatSælger(Sælger sælger) throws IllegalArgumentException{
+    public Seller creatSælger(Seller seller) throws IllegalArgumentException{
         //Try-catch
         try {
             //SQL statement
             PreparedStatement creatSælger = connection
                     .prepareStatement("INSERT INTO `sælger` (`type`, nummer, mail, cvr, firma_navn, sælger_id) VALUES (?, ?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
             //Setting parameters for user object
-            creatSælger.setInt( 1, sælger.getType());
-            creatSælger.setString( 2, sælger.getNummer());
-            creatSælger.setString( 3, sælger.getMail());
-            creatSælger.setString( 4, sælger.getCvr());
-            creatSælger.setString( 5, sælger.getFirmaNavn());
-            creatSælger.setInt( 6, sælger.getSælgerId());
+            creatSælger.setInt( 1, seller.getType());
+            creatSælger.setString( 2, seller.getNummer());
+            creatSælger.setString( 3, seller.getMail());
+            creatSælger.setString( 4, seller.getCvr());
+            creatSælger.setString( 5, seller.getFirmanavn());
+            creatSælger.setInt( 6, seller.getSælgerId());
 
             int rowsAffected = creatSælger.executeUpdate();
 
@@ -133,11 +133,11 @@ public class DbManager {
                 ResultSet rs = creatSælger.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     int autoIncrementedID = rs.getInt(1);
-                    sælger.setSælgerId(autoIncrementedID);
+                    seller.setSælgerId(autoIncrementedID);
                 } else {
-                    sælger = null;
+                    seller = null;
                 }
-                return sælger;
+                return seller;
             }
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -145,23 +145,24 @@ public class DbManager {
         }
         return null;
     }
-    public ArrayList<Sælger> loadSælger(){
+
+    public ArrayList<Seller> loadSælger(){
         ResultSet resultSet = null;
-        ArrayList<Sælger> sælgere = new ArrayList<Sælger>();
+        ArrayList<Seller> sælgere = new ArrayList<Seller>();
 
         try{
             PreparedStatement loadSælger = connection.prepareStatement("SELECT * FROM sælger");
             resultSet = loadSælger.executeQuery();
             while (resultSet.next()){
-                Sælger sælger = new Sælger();
-                sælger.setSælgerId(resultSet.getInt( "sælger_id"));
-                sælger.setCvr(resultSet.getString("cvr"));
-                sælger.setFirmaNavn(resultSet.getString("firma_navn"));
-                sælger.setMail(resultSet.getString("mail"));
-                sælger.setNummer(resultSet.getString("nummer"));
-                sælger.setPassword(resultSet.getString("password"));
-                sælger.setType(resultSet.getInt("type"));
-                sælgere.add(sælger);
+                Seller seller = new Seller();
+                seller.setSælgerId(resultSet.getInt( "sælger_id"));
+                seller.setCvr(resultSet.getString("cvr"));
+                seller.setFirmanavn(resultSet.getString("firma_navn"));
+                seller.setMail(resultSet.getString("mail"));
+                seller.setNummer(resultSet.getString("nummer"));
+                seller.setPassword(resultSet.getString("password"));
+                seller.setType(resultSet.getInt("type"));
+                sælgere.add(seller);
             }
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -174,6 +175,7 @@ public class DbManager {
                 close();
             } }return sælgere;
     }
+
 
     public void createToken(String token, int userId) {
         try {
@@ -204,9 +206,9 @@ public class DbManager {
         return false;
     }
 
-    public Bruger getUserFromToken(String token) throws SQLException {
+    public User getUserFromToken(String token) throws SQLException {
         ResultSet resultSet = null;
-        Bruger userFromToken = null;
+        User userFromToken = null;
 
         try {
             PreparedStatement getUserFromToken = connection
@@ -216,9 +218,9 @@ public class DbManager {
             resultSet = getUserFromToken.executeQuery();
 
             while (resultSet.next()) {
-                userFromToken = new Bruger();
+                userFromToken = new User();
                 userFromToken.setBrugerId(resultSet.getInt("user_id"));
-                userFromToken.setUserName(resultSet.getString("username"));
+                userFromToken.setUsername(resultSet.getString("username"));
                 userFromToken.setType(resultSet.getInt("type"));
                 userFromToken.setTimeCreated(resultSet.getLong("time_created"));
 
@@ -237,21 +239,21 @@ public class DbManager {
 
     }
 
-    public ArrayList<Vare> loadAlleVare(){
+    public ArrayList<Product> loadAlleVare(){
         ResultSet resultSet = null;
-        ArrayList<Vare> allVare = new ArrayList<Vare>();
+        ArrayList<Product> allProduct = new ArrayList<Product>();
         try{
             PreparedStatement loadVare = connection.prepareStatement("SELECT * FROM vare");
             resultSet = loadVare.executeQuery();
             while (resultSet.next()){
-                Vare vare = new Vare();
-                vare.setVare_id(resultSet.getInt("vare_id"));
-                vare.setAntal(resultSet.getInt("antal"));
-                vare.setPris(resultSet.getString("pris"));
-                vare.setSælger_sælger_id(resultSet.getInt("sælger_sælger_id"));
-                vare.setVare_beskrivelse(resultSet.getString("vare_beskrivelse"));
-                vare.setVariant_1(resultSet.getString("variant_1"));
-                allVare.add(vare);
+                Product product = new Product();
+                product.setProductID(resultSet.getInt("vare_id"));
+                product.setNumbers(resultSet.getInt("antal"));
+                product.setPrice(resultSet.getString("pris"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setProductDescription(resultSet.getString("vare_beskrivelse"));
+                product.setVariant(resultSet.getString("variant_1"));
+                allProduct.add(product);
             }
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -262,26 +264,26 @@ public class DbManager {
             } catch (SQLException exception) {
                 exception.printStackTrace();
                 close();
-            } }return allVare;
+            } }return allProduct;
     }
 
-    public ArrayList<Vare> loadVareBySælgerID(int sælgerId){
+    public ArrayList<Product> getProductsFromSellerID(int sellerId){
         ResultSet resultSet = null;
-        ArrayList<Vare> allVareBySælgerId = new ArrayList<Vare>();
+        ArrayList<Product> allProductFromSellerId = new ArrayList<Product>();
         try{
-            PreparedStatement loadVareBySælgerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
+            PreparedStatement getProductsFromSellerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
 
-            loadVareBySælgerID.setInt(1, sælgerId);
-            resultSet = loadVareBySælgerID.executeQuery();
+            getProductsFromSellerID.setInt(1, sellerId);
+            resultSet = getProductsFromSellerID.executeQuery();
             while (resultSet.next()){
-                Vare vare = new Vare();
-                vare.setVare_id(resultSet.getInt("vare_id"));
-                vare.setAntal(resultSet.getInt("antal"));
-                vare.setPris(resultSet.getString("pris"));
-                vare.setSælger_sælger_id(resultSet.getInt("sælger_sælger_id"));
-                vare.setVare_beskrivelse(resultSet.getString("vare_beskrivelse"));
-                vare.setVariant_1(resultSet.getString("variant_1"));
-                allVareBySælgerId.add(vare);
+                Product product = new Product();
+                product.setProductID(resultSet.getInt("vare_id"));
+                product.setNumbers(resultSet.getInt("antal"));
+                product.setPrice(resultSet.getString("pris"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setProductDescription(resultSet.getString("vare_beskrivelse"));
+                product.setVariant(resultSet.getString("variant_1"));
+                allProductFromSellerId.add(product);
             }
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -292,21 +294,22 @@ public class DbManager {
             } catch (SQLException exception) {
                 exception.printStackTrace();
                 close();
-            } }return allVareBySælgerId;
+            } }return allProductFromSellerId;
     }
 
-    public ArrayList<Ordre> loadOrdre(){
+
+    public ArrayList<Order> loadOrdre(){
         ResultSet resultSet = null;
-        ArrayList<Ordre> ordrer = new ArrayList<Ordre>();
+        ArrayList<Order> ordrer = new ArrayList<Order>();
         try{
             PreparedStatement loadOrdre = connection.prepareStatement("SELECT * FROM ordre");
             resultSet = loadOrdre.executeQuery();
             while (resultSet.next()){
-                Ordre ordre = new Ordre();
-                ordre.setOrdreID(resultSet.getInt("ordre_id"));
-                ordre.setOrdreDato(resultSet.getString("ordre_date"));
-                ordre.setOrdrePris(resultSet.getString("total_ordre_pris"));
-                ordrer.add(ordre);
+                Order order = new Order();
+                order.setOrderID(resultSet.getInt("ordre_id"));
+                order.setOrderDate(resultSet.getString("ordre_date"));
+                order.setOrderPrice(resultSet.getString("total_ordre_pris"));
+                ordrer.add(order);
             }
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -320,9 +323,9 @@ public class DbManager {
             } }return ordrer;
     }
 
-    public Ordre getOrderFromId(int ordreID) throws SQLException{
+    public Order getOrderFromId(int ordreID) throws SQLException{
         ResultSet resultSet = null;
-        Ordre ordre = null;
+        Order order = null;
 
         try {
             PreparedStatement getOrderFromId = connection
@@ -333,10 +336,10 @@ public class DbManager {
             resultSet = getOrderFromId.executeQuery();
 
             while (resultSet.next()) {
-                ordre = new Ordre();
-                ordre.setOrdreID(resultSet.getInt("ordre_Id"));
-                ordre.setOrdreDato(resultSet.getString("ordre_date"));
-                ordre.setOrdrePris(resultSet.getString("total_ordre_pris"));
+                order = new Order();
+                order.setOrderID(resultSet.getInt("ordre_Id"));
+                order.setOrderDate(resultSet.getString("ordre_date"));
+                order.setOrderPrice(resultSet.getString("total_ordre_pris"));
 
             }
         } catch (SQLException exception) {
@@ -349,14 +352,14 @@ public class DbManager {
                 close();
             }
         }
-        return ordre;
+        return order;
 
 
 
     }
 
-    public Bruger getTimeCreatedByUsername(String username) {
-        Bruger bruger = null;
+    public User getTimeCreatedByUsername(String username) {
+        User user = null;
         ResultSet resultSet = null;
 
         try {
@@ -365,8 +368,8 @@ public class DbManager {
             getTimeCreatedByUsername.setString(1, username);
             resultSet = getTimeCreatedByUsername.executeQuery();
             while (resultSet.next()) {
-                bruger = new Bruger();
-                bruger.setTimeCreated(resultSet.getLong("time_created"));
+                user = new User();
+                user.setTimeCreated(resultSet.getLong("time_created"));
             }
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -378,7 +381,37 @@ public class DbManager {
                 close();
             }
         }
-        return bruger;
+        return user;
+    }
+    // Method for creating a product - Boolean returned, which decides if the product is created or not
+    public Product createProduct(Product product) throws IllegalArgumentException{
+        //Try-catch method to avoid the program crashing on exceptions
+        try{
+            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            createProduct.setString(1, product.getProductDescription());
+            createProduct.setInt(2, product.getNumbers());
+            createProduct.setInt(3, product.getSellerID());
+            createProduct.setString(4, product.getPrice());
+            createProduct.setString(5, product.getVariant());
+
+            //rowsAffected
+            int rowsaffected = createProduct.executeUpdate();
+            if(rowsaffected ==1){
+                ResultSet resultSet = createProduct.getGeneratedKeys();
+                if(resultSet != null && resultSet.next()){
+                    int autoIncrementedProductId = resultSet.getInt(1);
+                    product.setProductID(autoIncrementedProductId);
+                } else {
+                    product = null;
+                }
+                return product;
+            }
+
+        } catch (SQLException exception){
+            exception.printStackTrace();
+            close();
+        }
+        return null;
     }
 
 }

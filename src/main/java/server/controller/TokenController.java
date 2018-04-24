@@ -1,7 +1,7 @@
 package server.controller;
 
 import server.dbmanager.DbManager;
-import server.models.Bruger;
+import server.models.User;
 import server.utility.CurrentUserContext;
 
 import java.sql.SQLException;
@@ -17,9 +17,9 @@ public class TokenController {
     //Method to save the user object in a currentUser
     public CurrentUserContext getUserFromTokens(String token) throws SQLException {
         DbManager dbManager = new DbManager();
-        Bruger bruger = dbManager.getUserFromToken(token);
+        User user = dbManager.getUserFromToken(token);
         CurrentUserContext context = new CurrentUserContext();
-        context.setCurrentUser(bruger);
+        context.setCurrentUser(user);
         return context;
     }
 

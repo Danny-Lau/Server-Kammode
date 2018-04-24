@@ -3,7 +3,7 @@ package server.controller;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import server.dbmanager.DbManager;
-import server.models.Bruger;
+import server.models.User;
 import server.utility.Digester;
 
 import java.io.UnsupportedEncodingException;
@@ -20,18 +20,18 @@ public class MainController {
 
     }
 
-    // Logic behind authorizing bruger
-    public String authUser(Bruger bruger) {
+    // Logic behind authorizing user
+    public String authUser(User user) {
         DbManager dbManager = new DbManager();
         String token = null;
         //Use username to get the time created
-        Bruger foundUser = dbManager.getTimeCreatedByUsername(bruger.getUserName());
+        User foundUser = dbManager.getTimeCreatedByUsername(user.getUsername());
 
         if(foundUser != null) {
             //Add the time created to the password and hash
-            bruger.setPassword(digester.hashWithSalt(bruger.getPassword() + foundUser.getTimeCreated()));
-            //Authorize bruger
-            Bruger authorizedUser = dbManager.authorizeUser(bruger.getUserName(), bruger.getPassword());
+            user.setPassword(digester.hashWithSalt(user.getPassword() + foundUser.getTimeCreated()));
+            //Authorize user
+            User authorizedUser = dbManager.authorizeUser(user.getUsername(), user.getPassword());
 
             //Generate token at login
             try {
@@ -39,7 +39,7 @@ public class MainController {
                 long timeValue = (System.currentTimeMillis() * 1000) + 20000205238L;
                 Date expDate = new Date(timeValue);
 
-                token = JWT.create().withClaim("User", authorizedUser.getUserName()).withExpiresAt(expDate).withIssuer("IMHO").sign(algorithm);
+                token = JWT.create().withClaim("User", authorizedUser.getUsername()).withExpiresAt(expDate).withIssuer("IMHO").sign(algorithm);
                 //Add token to database
                 dbManager.createToken(token, authorizedUser.getBrugerId());
 
@@ -57,15 +57,15 @@ public class MainController {
     }
 
     //Logic behind creating user.
-    public Bruger createUser(Bruger bruger) {
+    public User createUser(User user) {
         DbManager dbManager = new DbManager();
         //Add the time created to user
         long unixTime = (long) Math.floor(System.currentTimeMillis() / 10000);
-        bruger.setTimeCreated(unixTime);
+        user.setTimeCreated(unixTime);
         //Add the time created to the password and hash
-        bruger.setPassword(digester.hashWithSalt(bruger.getPassword()+bruger.getTimeCreated()));
+        user.setPassword(digester.hashWithSalt(user.getPassword()+ user.getTimeCreated()));
 
-        return dbManager.createUser(bruger);
+        return dbManager.createUser(user);
     }
 
 

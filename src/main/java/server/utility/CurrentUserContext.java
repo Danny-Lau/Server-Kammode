@@ -1,19 +1,19 @@
 package server.utility;
 
-import server.models.Bruger;
+import server.models.User;
 
 public class CurrentUserContext {
-    private Bruger currentUser;
+    private User currentUser;
 
-    public Bruger getCurrentUser() {
+    public User getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(Bruger currentUser) {
+    public void setCurrentUser(User currentUser) {
         this.currentUser = currentUser;
     }
 
-    public Boolean isAdmin() {
+    public Boolean isSeller() {
         if(this.currentUser.getType() == 1) {
             return true;
         } else {

@@ -1,22 +1,27 @@
 package server.models;
 
-public class Sælger {
+public class Seller {
 
-   private int sælgerId, type;
-   private String firmaNavn, cvr, mail, nummer, password;
+   private int sælgerId;
+   private String firmanavn;
+   private String cvr;
+   private String mail;
+   private String nummer;
+   private int type;
+   private String password;
 
-    public Sælger(int sælgerId, int type, String firmaNavn, String cvr, String mail, String nummer, String password) {
-
-        this.sælgerId = sælgerId;
-        this.type = type;
-        this.firmaNavn = firmaNavn;
+    public Seller(String firmanavn, String cvr, String mail, String nummer, int type, String password) {
+        this.firmanavn = firmanavn;
         this.cvr = cvr;
         this.mail = mail;
         this.nummer = nummer;
+        this.type = type;
         this.password = password;
+
     }
 
-    public Sælger() {
+    public Seller(){
+
     }
 
     public int getSælgerId() {
@@ -27,20 +32,12 @@ public class Sælger {
         this.sælgerId = sælgerId;
     }
 
-    public int getType() {
-        return type;
+    public String getFirmanavn() {
+        return firmanavn;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
-    public String getFirmaNavn() {
-        return firmaNavn;
-    }
-
-    public void setFirmaNavn(String firmaNavn) {
-        this.firmaNavn = firmaNavn;
+    public void setFirmanavn(String firmanavn) {
+        this.firmanavn = firmanavn;
     }
 
     public String getCvr() {
@@ -67,6 +64,14 @@ public class Sælger {
         this.nummer = nummer;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -74,4 +79,5 @@ public class Sælger {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

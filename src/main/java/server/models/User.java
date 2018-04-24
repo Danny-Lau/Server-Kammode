@@ -1,29 +1,24 @@
 package server.models;
 
-public class Bruger {
-    String  userName, mail, password ;
-    int type, brugerId;
-    Long timeCreated;
+public class User {
 
+    private int brugerId;
+    private String username;
+    private String mail;
+    private String password;
+    private int type;
+    private Long timeCreated;
 
-    public Bruger(int brugerId, String userName, String mail, String password, Long timeCreated, int type) {
-        this.brugerId = brugerId;
-        this.userName = userName;
+    public User(String username, String mail, String password, int type, Long timeCreated) {
+        this.username = username;
         this.mail = mail;
         this.password = password;
         this.type = type;
         this.timeCreated = timeCreated;
     }
 
-    public Bruger() {
-    }
+    public User(){
 
-    public Long getTimeCreated() {
-        return timeCreated;
-    }
-
-    public void setTimeCreated(Long timeCreated) {
-        this.timeCreated = timeCreated;
     }
 
     public int getBrugerId() {
@@ -34,12 +29,12 @@ public class Bruger {
         this.brugerId = brugerId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getMail() {
@@ -64,5 +59,13 @@ public class Bruger {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public Long getTimeCreated() {
+        return timeCreated;
+    }
+
+    public void setTimeCreated(Long timeCreated) {
+        this.timeCreated = timeCreated;
     }
 }
