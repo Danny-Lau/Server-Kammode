@@ -206,6 +206,7 @@ public class DbManager {
         return false;
     }
 
+
     public User getUserFromToken(String token) throws SQLException {
         ResultSet resultSet = null;
         User userFromToken = null;
@@ -239,7 +240,24 @@ public class DbManager {
 
     }
 
-    public ArrayList<Product> loadAlleVare(){
+    //Method for deleting a product and it´ sub-tables
+    public boolean deleteProduct(int productId) throws IllegalArgumentException{
+        try {
+            PreparedStatement deleteProduct = connection
+                    .prepareStatement("DELETE FROM vare WHERE vare_id = ?");
+            deleteProduct.setInt( 1, productId);
+            int rowsaffected = deleteProduct.executeUpdate();
+            if(rowsaffected == 1){
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            close();
+        }
+        return false;
+    }
+
+    public ArrayList<Product> loadAllProduct(){
         ResultSet resultSet = null;
         ArrayList<Product> allProduct = new ArrayList<Product>();
         try{
@@ -329,7 +347,7 @@ public class DbManager {
 
         try {
             PreparedStatement getOrderFromId = connection
-                    .prepareStatement("SELECT * ordre WHERE ordre_Id = ?");
+                    .prepareStatement("SELECT * ordre WHERE ordre_id = ?");
 
             getOrderFromId.setInt(1, ordreID);
 
@@ -337,7 +355,7 @@ public class DbManager {
 
             while (resultSet.next()) {
                 order = new Order();
-                order.setOrderID(resultSet.getInt("ordre_Id"));
+                order.setOrderID(resultSet.getInt("ordre_id"));
                 order.setOrderDate(resultSet.getString("ordre_date"));
                 order.setOrderPrice(resultSet.getString("total_ordre_pris"));
 

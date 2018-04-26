@@ -21,7 +21,7 @@ public class ProductEndpoint {
 
     @GET
     public Response loadAllProduct() throws SQLException {
-        ArrayList<Product> product = db.loadAlleVare();
+        ArrayList<Product> product = db.loadAllProduct();
         String loadedProduct = new Gson().toJson(product);
 
         if(product != null){
@@ -73,4 +73,25 @@ public class ProductEndpoint {
         }
     }
 
+    @DELETE
+    @Path("{deleteId}")
+
+    public Response deleteProduct(@HeaderParam("authorization") String token, @PathParam("deleteId") int productId) throws SQLException{
+        CurrentUserContext currentUser = tokenController.getUserFromTokens(token);
+
+        if(currentUser.getCurrentUser() != null && currentUser.isSeller()){
+            Boolean productDeleted = productController.deleteProduct(productId);
+            if(productDeleted == true) {
+                Globals.log.writeLog(this.getClass().getName(), this, "Product deleted", 2);
+                return Response.status(200).type("text/plain").entity("Product deleted").build();
+            } else {
+                Globals.log.writeLog(this.getClass().getName(), this, "Delete product attempt failed", 2);
+                return Response.status(400).type("text/plain").entity("Error deleting product").build();
+            }
+        } else {
+            Globals.log.writeLog(this.getClass().getName(), this, "Unauthorized - delete product", 2);
+            return Response.status(401).type("text/plain").entity("Unauthorized").build();
+        }
+    }
 }
+

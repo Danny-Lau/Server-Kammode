@@ -16,5 +16,11 @@ public class ProductController {
         }
     }
 
+    public boolean deleteProduct (int productId){
+        DbManager dbManager = new DbManager();
+        Boolean ifDeleted = dbManager.deleteProduct(productId);
+        return ifDeleted;
+    }
+
 
 }
