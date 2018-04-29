@@ -31,9 +31,9 @@ public class OrdreEndpoint {
         }
     }
 
-    @Path("/{ordre_id}")
+    @Path("/{ordreId}")
     @GET
-    public Response getOrderFromId(@PathParam("ordre_id") int orderId) throws SQLException {
+    public Response getOrderFromId(@PathParam("ordreId") int orderId) throws SQLException {
 
         String ordre = new Gson().toJson( db.getOrderFromId(orderId));
 

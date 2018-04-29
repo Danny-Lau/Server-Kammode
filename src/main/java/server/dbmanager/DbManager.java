@@ -113,30 +113,29 @@ public class DbManager {
     }
 
 
-    public Seller creatSælger(Seller seller) throws IllegalArgumentException{
+    public Seller createSeller(Seller seller) throws IllegalArgumentException{
         //Try-catch
         try {
             //SQL statement
-            PreparedStatement creatSælger = connection
-                    .prepareStatement("INSERT INTO `sælger` (`type`, nummer, mail, cvr, firma_navn, sælger_id) VALUES (?, ?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createSeller = connection
+                    .prepareStatement("INSERT INTO sælger (firma_navn, cvr, mail, password) VALUES (?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
             //Setting parameters for user object
-            creatSælger.setInt( 1, seller.getType());
-            creatSælger.setString( 2, seller.getNummer());
-            creatSælger.setString( 3, seller.getMail());
-            creatSælger.setString( 4, seller.getCvr());
-            creatSælger.setString( 5, seller.getFirmanavn());
-            creatSælger.setInt( 6, seller.getSælgerId());
+            createSeller.setString( 1, seller.getFirmanavn());
+            createSeller.setString( 2, seller.getCvr());
+            createSeller.setString( 3, seller.getMail());
+            createSeller.setString( 4, seller.getPassword());
 
-            int rowsAffected = creatSælger.executeUpdate();
 
+            int rowsAffected = createSeller.executeUpdate();
             if (rowsAffected == 1) {
-                ResultSet rs = creatSælger.getGeneratedKeys();
+                ResultSet rs = createSeller.getGeneratedKeys();
                 if (rs != null && rs.next()) {
-                    int autoIncrementedID = rs.getInt(1);
-                    seller.setSælgerId(autoIncrementedID);
+                    int autoIncrementedId = rs.getInt(1);
+                    seller.setSælgerId(autoIncrementedId);
                 } else {
                     seller = null;
                 }
+                seller.setType(1);
                 return seller;
             }
         } catch (SQLException exception) {
@@ -146,9 +145,9 @@ public class DbManager {
         return null;
     }
 
-    public ArrayList<Seller> loadSælger(){
+    public ArrayList<Seller> loadSeller(){
         ResultSet resultSet = null;
-        ArrayList<Seller> sælgere = new ArrayList<Seller>();
+        ArrayList<Seller> sellers = new ArrayList<Seller>();
 
         try{
             PreparedStatement loadSælger = connection.prepareStatement("SELECT * FROM sælger");
@@ -162,7 +161,7 @@ public class DbManager {
                 seller.setNummer(resultSet.getString("nummer"));
                 seller.setPassword(resultSet.getString("password"));
                 seller.setType(resultSet.getInt("type"));
-                sælgere.add(seller);
+                sellers.add(seller);
             }
         }catch (SQLException exception) {
             exception.printStackTrace();
@@ -173,7 +172,7 @@ public class DbManager {
             } catch (SQLException exception) {
                 exception.printStackTrace();
                 close();
-            } }return sælgere;
+            } }return sellers;
     }
 
 
@@ -256,6 +255,24 @@ public class DbManager {
         }
         return false;
     }
+
+    //Method for deleting a seller and it´ sub-tables
+    public boolean deleteSeller(int sellerId) throws IllegalArgumentException {
+        try {
+            PreparedStatement deleteSeller = connection
+                    .prepareStatement("DELETE FROM sælger WHERE sælger_id = ?");
+            deleteSeller.setInt(1, sellerId);
+            int rowsaffected = deleteSeller.executeUpdate();
+            if (rowsaffected == 1) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            close();
+        }
+        return false;
+    }
+
 
     public ArrayList<Product> loadAllProduct(){
         ResultSet resultSet = null;
@@ -376,6 +393,7 @@ public class DbManager {
 
     }
 
+
     public User getTimeCreatedByUsername(String username) {
         User user = null;
         ResultSet resultSet = null;
@@ -401,6 +419,35 @@ public class DbManager {
         }
         return user;
     }
+
+
+    // Method for creating sending information - Boolean returned, which decides if the information is created or not
+    public SendingInfo createSendinngInfo(SendingInfo sendingInfo) throws IllegalArgumentException{
+
+        try {
+            PreparedStatement createSendingInfo = connection.prepareStatement("INSERT INTO forsendelse_informationer (adresse, postnummer, by) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            createSendingInfo.setString(1, sendingInfo.getAdress());
+            createSendingInfo.setInt(2, sendingInfo.getPostNumber());
+            createSendingInfo.setString(3, sendingInfo.getCity());
+
+            int rowsaffected = createSendingInfo.executeUpdate();
+            if(rowsaffected == 1){
+                ResultSet resultSet = createSendingInfo.getGeneratedKeys();
+                if(resultSet != null && resultSet.next()){
+                    int autoIncrementedSendingInfoId = resultSet.getInt(1);
+                    sendingInfo.setSendinginfoId(autoIncrementedSendingInfoId);
+                } else {
+                    sendingInfo = null;
+                }
+                return sendingInfo;
+            }
+        } catch (SQLException exception){
+            exception.printStackTrace();
+            close();
+        }
+        return null;
+    }
+
     // Method for creating a product - Boolean returned, which decides if the product is created or not
     public Product createProduct(Product product) throws IllegalArgumentException{
         //Try-catch method to avoid the program crashing on exceptions

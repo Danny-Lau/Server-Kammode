@@ -3,6 +3,7 @@ package server.controller;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import server.dbmanager.DbManager;
+import server.models.SendingInfo;
 import server.models.User;
 import server.utility.Digester;
 
@@ -66,6 +67,17 @@ public class MainController {
         user.setPassword(digester.hashWithSalt(user.getPassword()+ user.getTimeCreated()));
 
         return dbManager.createUser(user);
+    }
+
+    public SendingInfo createSendingInfo(SendingInfo sendingingfor){
+        DbManager dbManager = new DbManager();
+        SendingInfo createdSendinginfo = dbManager.createSendinngInfo(sendingingfor);
+        if(createdSendinginfo != null) {
+            return createdSendinginfo;
+        } else {
+            return null;
+        }
+
     }
 
 

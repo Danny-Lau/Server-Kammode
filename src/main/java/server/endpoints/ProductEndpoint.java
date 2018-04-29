@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 @Path("/Product")
 public class ProductEndpoint {
+
     DbManager db = new DbManager();
     TokenController tokenController = new TokenController();
     ProductController productController = new ProductController();

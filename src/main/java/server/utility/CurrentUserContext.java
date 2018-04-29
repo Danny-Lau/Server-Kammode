@@ -20,4 +20,11 @@ public class CurrentUserContext {
             return false;
         }
     }
+    public Boolean isAdmin() {
+        if(this.currentUser.getType() == 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -9,14 +9,15 @@ public class Seller {
    private String nummer;
    private int type;
    private String password;
+   private long timeCreated;
 
-    public Seller(String firmanavn, String cvr, String mail, String nummer, int type, String password) {
+    public Seller(String firmanavn, String cvr, String mail, String nummer, String password, long timeCreated) {
         this.firmanavn = firmanavn;
         this.cvr = cvr;
         this.mail = mail;
         this.nummer = nummer;
-        this.type = type;
         this.password = password;
+        this.timeCreated = timeCreated;
 
     }
 
@@ -78,6 +79,14 @@ public class Seller {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public long getTimeCreated(){
+        return timeCreated;
+    }
+
+    public void setTimeCreated(long timeCreated){
+        this.timeCreated = timeCreated;
     }
 
 }
