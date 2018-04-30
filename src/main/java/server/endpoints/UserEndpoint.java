@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response;
 import java.sql.SQLException;
 
 
-    @Path("/bruger")
+    @Path("/user")
     public class UserEndpoint {
         MainController mainController = new MainController();
         TokenController tokenController = new TokenController();
