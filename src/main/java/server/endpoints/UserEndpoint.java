@@ -25,7 +25,7 @@ import java.sql.SQLException;
         @Path("/login")
         //Endpoint for authorizing a User
         public Response logIn(String userIn) {
-            User userout = null;
+            User userout = null; //Denne null sikre at det ikke er gammel data der bliver retuneret
             User user = new Gson().fromJson(userIn, User.class);
             userout = db.authorizeUser(user);
 
