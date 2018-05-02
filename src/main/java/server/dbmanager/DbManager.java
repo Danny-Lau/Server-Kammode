@@ -40,7 +40,7 @@ public class DbManager {
     }
 
     //Method for authorizing the user. Prepared statement are used, and a user object is returned.
-    public User authorizeUser(String username, String password) throws IllegalArgumentException {
+    public User authorizeUser(User tempUser) throws IllegalArgumentException {
         //ResultSet and User to temporary contain values from SQL statement
         ResultSet resultSet = null;
         User user = null;
@@ -50,8 +50,8 @@ public class DbManager {
             PreparedStatement authorizeUser = connection
                     .prepareStatement("SELECT * from Bruger where user_name = ? AND password = ?");
             //Setting parameters for user object
-            authorizeUser.setString(1, username);
-            authorizeUser.setString(2, password);
+            authorizeUser.setString(1, tempUser.getUsername());
+            authorizeUser.setString(2, tempUser.getPassword());
 
             //ResultSet consisting parameters from SQL statement
             resultSet = authorizeUser.executeQuery();

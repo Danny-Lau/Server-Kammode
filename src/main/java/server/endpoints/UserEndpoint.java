@@ -3,6 +3,7 @@ package server.endpoints;
 import com.google.gson.Gson;
 import server.controller.MainController;
 import server.controller.TokenController;
+import server.dbmanager.DbManager;
 import server.models.User;
 import server.utility.Crypter;
 import server.utility.CurrentUserContext;
@@ -17,20 +18,20 @@ import java.sql.SQLException;
     public class UserEndpoint {
         MainController mainController = new MainController();
         TokenController tokenController = new TokenController();
-
+        DbManager db = new DbManager();
         Crypter crypter = new Crypter();
 
         @POST
         @Path("/login")
         //Endpoint for authorizing a User
-        public Response logIn(String user) {
-            String authorizedUser = mainController.authUser(new Gson().fromJson(user, User.class));
-            String myUser = new Gson().toJson(authorizedUser);
-            myUser = crypter.encryptAndDecryptXor(myUser);
+        public Response logIn(String userIn) {
+            User userout = null;
+            User user = new Gson().fromJson(userIn, User.class);
+            userout = db.authorizeUser(user);
 
-            if (authorizedUser != null) {
+            if (userout != null) {
                 Globals.log.writeLog(this.getClass().getName(), this, "User authorized", 2);
-                return Response.status(200).type("application/json").entity(new Gson().toJson(myUser)).build();
+                return Response.status(200).type("application/json").entity(new Gson().toJson(userout)).build();
             } else {
                 Globals.log.writeLog(this.getClass().getName(), this, "User not authorized", 2);
                 return Response.status(401).type("text/plain").entity("Error signing in - unauthorized").build();
