@@ -25,13 +25,12 @@ import java.sql.SQLException;
         @Path("/login")
         //Endpoint for authorizing a User
         public Response logIn(String userIn) {
-            User userout = null; //Denne null sikre at det ikke er gammel data der bliver retuneret
             User user = new Gson().fromJson(userIn, User.class);
-            userout = db.authorizeUser(user);
+            User userOut = db.authorizeUser(user);
 
-            if (userout != null) {
+            if (userOut != null) {
                 Globals.log.writeLog(this.getClass().getName(), this, "User authorized", 2);
-                return Response.status(200).type("application/json").entity(new Gson().toJson(userout)).build();
+                return Response.status(200).type("application/json").entity(new Gson().toJson(userOut)).build();
             } else {
                 Globals.log.writeLog(this.getClass().getName(), this, "User not authorized", 2);
                 return Response.status(401).type("text/plain").entity("Error signing in - unauthorized").build();

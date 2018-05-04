@@ -48,7 +48,7 @@ public class DbManager {
         try {
             //SQL statement
             PreparedStatement authorizeUser = connection
-                    .prepareStatement("SELECT * from Bruger where user_name = ? AND password = ?");
+                    .prepareStatement("SELECT * from bruger where user_name = ? AND password = ?");
             //Setting parameters for user object
             authorizeUser.setString(1, tempUser.getUsername());
             authorizeUser.setString(2, tempUser.getPassword());
@@ -81,6 +81,92 @@ public class DbManager {
         }
         return user;
     }
+
+    //Method for authorizing the user. Prepared statement are used, and a user object is returned.
+    public Seller authorizeSeller(Seller tempSeller) throws IllegalArgumentException {
+        //ResultSet and User to temporary contain values from SQL statement
+        ResultSet resultSet = null;
+        Seller seller = null;
+        //Try-catch method to avoid the program crashing on exceptions
+        try {
+            //SQL statement
+            PreparedStatement authorizeSeller = connection
+                    .prepareStatement("SELECT * from sælger where firma_navn = ? AND password = ?");
+            //Setting parameters for user object
+            authorizeSeller.setString(1, tempSeller.getCompanyName());
+            authorizeSeller.setString(2, tempSeller.getPassword());
+
+            //ResultSet consisting parameters from SQL statement
+            resultSet = authorizeSeller.executeQuery();
+
+            //Method will run as long as there is content in the next line of the resultSet
+            while (resultSet.next()) {
+                seller = new Seller();
+                seller.setSellerId(resultSet.getInt("sælger_id"));
+                seller.setCompanyName(resultSet.getString("firma_navn"));
+                seller.setPassword(resultSet.getString("password"));
+                seller.setCvr(resultSet.getString("cvr"));
+                seller.setType(resultSet.getInt("type"));
+                seller.setNumber(resultSet.getString("nummer"));
+
+            }
+            //Exception to avoid crashing
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            }
+        }
+        return seller;
+    }
+
+    //Method for authorizing the user. Prepared statement are used, and a user object is returned.
+    public Admin authorizeAdmin(Admin tempAdmin) throws IllegalArgumentException {
+        //ResultSet and User to temporary contain values from SQL statement
+        ResultSet resultSet = null;
+        Admin admin = null;
+        //Try-catch method to avoid the program crashing on exceptions
+        try {
+            //SQL statement
+            PreparedStatement authorizeAdmin = connection
+                    .prepareStatement("SELECT * from admin where admin_name = ? AND password = ?");
+            //Setting parameters for user object
+            authorizeAdmin.setString(1, tempAdmin.getUsername());
+            authorizeAdmin.setString(2, tempAdmin.getPassword());
+
+            //ResultSet consisting parameters from SQL statement
+            resultSet = authorizeAdmin.executeQuery();
+
+            //Method will run as long as there is content in the next line of the resultSet
+            while (resultSet.next()) {
+                admin = new Admin();
+                admin.setAdminId(resultSet.getInt("admin_id"));
+                admin.setUsername(resultSet.getString("admin_name"));
+                admin.setPassword(resultSet.getString("password"));
+                admin.setType(resultSet.getInt("type"));
+
+
+            }
+            //Exception to avoid crashing
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            }
+        }
+        return admin;
+    }
+
 
     // Method for creating a user - Boolean returned, which decides if the user is created or not
     public User createUser(User user) throws IllegalArgumentException {
@@ -120,7 +206,7 @@ public class DbManager {
             PreparedStatement createSeller = connection
                     .prepareStatement("INSERT INTO sælger (firma_navn, cvr, mail, password) VALUES (?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
             //Setting parameters for user object
-            createSeller.setString( 1, seller.getFirmanavn());
+            createSeller.setString( 1, seller.getCompanyName());
             createSeller.setString( 2, seller.getCvr());
             createSeller.setString( 3, seller.getMail());
             createSeller.setString( 4, seller.getPassword());
@@ -131,7 +217,7 @@ public class DbManager {
                 ResultSet rs = createSeller.getGeneratedKeys();
                 if (rs != null && rs.next()) {
                     int autoIncrementedId = rs.getInt(1);
-                    seller.setSælgerId(autoIncrementedId);
+                    seller.setSellerId(autoIncrementedId);
                 } else {
                     seller = null;
                 }
@@ -154,11 +240,11 @@ public class DbManager {
             resultSet = loadSælger.executeQuery();
             while (resultSet.next()){
                 Seller seller = new Seller();
-                seller.setSælgerId(resultSet.getInt( "sælger_id"));
+                seller.setSellerId(resultSet.getInt( "sælger_id"));
                 seller.setCvr(resultSet.getString("cvr"));
-                seller.setFirmanavn(resultSet.getString("firma_navn"));
+                seller.setCompanyName(resultSet.getString("firma_navn"));
                 seller.setMail(resultSet.getString("mail"));
-                seller.setNummer(resultSet.getString("nummer"));
+                seller.setNumber(resultSet.getString("nummer"));
                 seller.setPassword(resultSet.getString("password"));
                 seller.setType(resultSet.getInt("type"));
                 sellers.add(seller);
@@ -391,33 +477,6 @@ public class DbManager {
 
 
 
-    }
-
-
-    public User getTimeCreatedByUsername(String username) {
-        User user = null;
-        ResultSet resultSet = null;
-
-        try {
-            //SQL statement
-            PreparedStatement getTimeCreatedByUsername = connection.prepareStatement("SELECT * FROM User WHERE username = ?");
-            getTimeCreatedByUsername.setString(1, username);
-            resultSet = getTimeCreatedByUsername.executeQuery();
-            while (resultSet.next()) {
-                user = new User();
-                user.setTimeCreated(resultSet.getLong("time_created"));
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        } finally {
-            try {
-                resultSet.close();
-            } catch (SQLException exception) {
-                exception.printStackTrace();
-                close();
-            }
-        }
-        return user;
     }
 
 

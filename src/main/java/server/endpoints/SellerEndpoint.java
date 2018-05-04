@@ -15,7 +15,7 @@ import server.utility.Crypter;
         import java.sql.SQLException;
         import java.util.ArrayList;
 
-@Path("/sælger")
+@Path("/seller")
 public class SellerEndpoint {
 
         TokenController tokenController = new TokenController();
@@ -43,6 +43,22 @@ public class SellerEndpoint {
                 } else {
                         Globals.log.writeLog(this.getClass().getName(), this, "Unauthorized - load Sellers", 2);
                         return Response.status(401).type("text/plain").entity("Unauthorized").build();
+                }
+        }
+        @POST
+        @Path("/login")
+        //Endpoint for authorizing a seller
+        public Response logIn(String seller) {
+                Seller sellerData = new Gson().fromJson(seller, Seller.class);
+                Seller sellerLogin = db.authorizeSeller(sellerData);
+
+
+                if (sellerLogin != null) {
+                        Globals.log.writeLog(this.getClass().getName(), this, "Seller authorized", 2);
+                        return Response.status(200).type("application/json").entity(new Gson().toJson(sellerLogin)).build();
+                } else {
+                        Globals.log.writeLog(this.getClass().getName(), this, "Seller not authorized", 2);
+                        return Response.status(401).type("text/plain").entity("Error signing in - unauthorized").build();
                 }
         }
 

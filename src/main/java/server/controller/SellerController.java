@@ -11,6 +11,7 @@ public class SellerController {
         digester = new Digester();
     }
 
+
     public boolean deleteSeller (int sellerId){
         DbManager dbManager = new DbManager();
         Boolean ifDeleted = dbManager.deleteSeller(sellerId);
@@ -20,10 +21,6 @@ public class SellerController {
     public Seller createSeller(Seller seller) {
         DbManager dbManager = new DbManager();
 
-        long unixTime = (long) Math.floor(System.currentTimeMillis() / 10000);
-        seller.setTimeCreated(unixTime);
-
-        seller.setPassword(digester.hashWithSalt(seller.getPassword() + seller.getTimeCreated()));
 
         return dbManager.createSeller(seller);
     }

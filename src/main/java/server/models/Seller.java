@@ -2,22 +2,21 @@ package server.models;
 
 public class Seller {
 
-   private int sælgerId;
-   private String firmanavn;
+   private int sellerId;
+   private String companyName;
    private String cvr;
    private String mail;
-   private String nummer;
+   private String number;
    private int type;
    private String password;
-   private long timeCreated;
 
-    public Seller(String firmanavn, String cvr, String mail, String nummer, String password, long timeCreated) {
-        this.firmanavn = firmanavn;
+    public Seller(String companyName, String cvr, String mail, String number, String password) {
+        this.companyName = companyName;
         this.cvr = cvr;
         this.mail = mail;
-        this.nummer = nummer;
+        this.number = number;
         this.password = password;
-        this.timeCreated = timeCreated;
+
 
     }
 
@@ -25,20 +24,20 @@ public class Seller {
 
     }
 
-    public int getSælgerId() {
-        return sælgerId;
+    public int getSellerId() {
+        return sellerId;
     }
 
-    public void setSælgerId(int sælgerId) {
-        this.sælgerId = sælgerId;
+    public void setSellerId(int sellerId) {
+        this.sellerId = sellerId;
     }
 
-    public String getFirmanavn() {
-        return firmanavn;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setFirmanavn(String firmanavn) {
-        this.firmanavn = firmanavn;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getCvr() {
@@ -57,12 +56,12 @@ public class Seller {
         this.mail = mail;
     }
 
-    public String getNummer() {
-        return nummer;
+    public String getNumber() {
+        return number;
     }
 
-    public void setNummer(String nummer) {
-        this.nummer = nummer;
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public int getType() {
@@ -81,12 +80,5 @@ public class Seller {
         this.password = password;
     }
 
-    public long getTimeCreated(){
-        return timeCreated;
-    }
-
-    public void setTimeCreated(long timeCreated){
-        this.timeCreated = timeCreated;
-    }
 
 }

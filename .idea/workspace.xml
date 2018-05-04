@@ -7,8 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf3b246d-e45d-461b-9dbe-da70057ad5f2" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/endpoints/AdminEndpoint.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/server/models/Admin.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/server/dbmanager/DbManager.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/controller/MainController.class" afterPath="$PROJECT_DIR$/target/classes/server/controller/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/server/utility/CurrentUserContext.class" afterPath="$PROJECT_DIR$/target/classes/server/utility/CurrentUserContext.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/simple-service-webapp.war" afterPath="$PROJECT_DIR$/target/simple-service-webapp.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/controller/MainController.class" afterPath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/controller/MainController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/dbmanager/DbManager.class" afterPath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/dbmanager/DbManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/endpoints/UserEndpoint.class" afterPath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/endpoints/UserEndpoint.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/utility/CurrentUserContext.class" afterPath="$PROJECT_DIR$/target/simple-service-webapp/WEB-INF/classes/server/utility/CurrentUserContext.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/controller/SellerController.java" afterPath="$PROJECT_DIR$/src/main/java/server/controller/SellerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" afterPath="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java" afterPath="$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/server/models/Seller.java" afterPath="$PROJECT_DIR$/src/main/java/server/models/Seller.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,59 +35,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ProductEndpoint.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/ProductEndpoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="54" column="90" lean-forward="true" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SellerController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/SellerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#218#219#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Seller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Seller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-              <folding>
-                <element signature="e#1607#1608#0" expanded="true" />
-                <element signature="e#1641#1642#0" expanded="true" />
-                <element signature="e#1692#1693#0" expanded="true" />
-                <element signature="e#1738#1739#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserEndpoint.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="AdminEndpoint.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/AdminEndpoint.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="131">
+                  <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Admin.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Admin.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-87">
+                  <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="SellerEndpoint.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="21" column="67" lean-forward="true" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -110,14 +114,16 @@
         <option value="$PROJECT_DIR$/src/main/java/server/utility/CurrentUserContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/ProductEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/models/Seller.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/controller/SellerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/models/SendingInfo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/server/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/SendingInfoEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/controller/SellerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/models/Seller.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/models/Admin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/server/endpoints/AdminEndpoint.java" />
       </list>
     </option>
   </component>
@@ -134,9 +140,10 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="732" />
     <option name="y" value="23" />
-    <option name="width" value="1280" />
+    <option name="width" value="548" />
     <option name="height" value="708" />
   </component>
   <component name="ProjectView">
@@ -154,9 +161,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,7 +261,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,7 +512,10 @@
       <workItem from="1524481792625" duration="1102000" />
       <workItem from="1524579044484" duration="9223000" />
       <workItem from="1524600331437" duration="3004000" />
-      <workItem from="1524757819095" duration="13637000" />
+      <workItem from="1524757819095" duration="14684000" />
+      <workItem from="1525183419639" duration="5398000" />
+      <workItem from="1525252728618" duration="4703000" />
+      <workItem from="1525446420287" duration="7463000" />
     </task>
     <task id="LOCAL-00001" summary="Rettet STOR fejl">
       <created>1523958821810</created>
@@ -556,14 +566,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524995283469</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="user">
+      <created>1525105088830</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525105088830</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29964000" />
+    <option name="totallyTimeSpent" value="48575000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="708" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="708" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -572,21 +589,21 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2822186" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29644588" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2996769" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -621,28 +638,79 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/ProductEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="54" column="90" lean-forward="false" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/SellerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#218#219#0" expanded="false" />
+            <element signature="e#259#260#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Seller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="33" column="8" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3180">
           <caret line="217" column="34" lean-forward="false" selection-start-line="217" selection-start-column="34" selection-end-line="217" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1524995259000" expanded="true" signature="1761:1818" ph="SELECT * fro... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="3437:3509" ph="INSERT INTO User... " />
-            <marker date="1524995259000" expanded="true" signature="4648:4720" ph="INSERT INTO `sælger`... " />
-            <marker date="1524995259000" expanded="true" signature="5902:5922" ph="SELECT * FRO... sælger" />
-            <marker date="1524995259000" expanded="true" signature="7107:7161" ph="INSERT INTO Tokens... " />
-            <marker date="1524995259000" expanded="true" signature="7596:7638" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="8243:8388" ph="SELECT user_... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="9475:9509" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10073:10111" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10664:10682" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="11980:12025" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="13360:13379" ph="SELECT * FRO... ordre" />
-            <marker date="1524995259000" expanded="true" signature="14410:14443" ph="SELECT * ord... " />
-            <marker date="1524995259000" expanded="true" signature="15438:15475" ph="SELECT * FRO... User" />
-            <marker date="1524995259000" expanded="true" signature="16404:16481" ph="INSERT INTO forsendelse_informationer... " />
-            <marker date="1524995259000" expanded="true" signature="17738:17833" ph="INSERT INTO vare... " />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#14313#14322#0" expanded="true" />
+            <element signature="e#15614#15623#0" expanded="true" />
+            <element signature="e#17010#17017#0" expanded="true" />
+            <marker date="1525464341000" expanded="true" signature="1742:1799" ph="SELECT * fro... bruger" />
+            <marker date="1525464341000" expanded="true" signature="3658:3716" ph="SELECT * fro... sælger" />
+            <marker date="1525464341000" expanded="true" signature="5592:5649" ph="SELECT * fro... admin" />
+            <marker date="1525464341000" expanded="true" signature="7178:7250" ph="INSERT INTO User... " />
+            <marker date="1525464341000" expanded="true" signature="8389:8461" ph="INSERT INTO `sælger`... " />
+            <marker date="1525464341000" expanded="true" signature="9645:9665" ph="SELECT * FRO... sælger" />
+            <marker date="1525464341000" expanded="true" signature="10852:10906" ph="INSERT INTO Tokens... " />
+            <marker date="1525464341000" expanded="true" signature="11341:11383" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="11988:12133" ph="SELECT user_... Bruger" />
+            <marker date="1525464341000" expanded="true" signature="13220:13254" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="13818:13856" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="14409:14427" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="15725:15770" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="17105:17124" ph="SELECT * FRO... ordre" />
+            <marker date="1525464341000" expanded="true" signature="18155:18188" ph="SELECT * ord... " />
+            <marker date="1525464341000" expanded="true" signature="19244:19321" ph="INSERT INTO forsendelse_informationer... " />
+            <marker date="1525464341000" expanded="true" signature="20578:20673" ph="INSERT INTO vare... " />
           </folding>
         </state>
       </provider>
@@ -651,7 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,7 +726,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -667,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,7 +757,7 @@
         <state relative-caret-position="435">
           <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -701,7 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -719,22 +783,27 @@
           <caret line="402" column="41" lean-forward="false" selection-start-line="402" selection-start-column="41" selection-end-line="402" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1524995259000" expanded="true" signature="1761:1818" ph="SELECT * fro... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="3437:3509" ph="INSERT INTO User... " />
-            <marker date="1524995259000" expanded="true" signature="4648:4720" ph="INSERT INTO `sælger`... " />
-            <marker date="1524995259000" expanded="true" signature="5902:5922" ph="SELECT * FRO... sælger" />
-            <marker date="1524995259000" expanded="true" signature="7107:7161" ph="INSERT INTO Tokens... " />
-            <marker date="1524995259000" expanded="true" signature="7596:7638" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="8243:8388" ph="SELECT user_... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="9475:9509" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10073:10111" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10664:10682" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="11980:12025" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="13360:13379" ph="SELECT * FRO... ordre" />
-            <marker date="1524995259000" expanded="true" signature="14410:14443" ph="SELECT * ord... " />
-            <marker date="1524995259000" expanded="true" signature="15438:15475" ph="SELECT * FRO... User" />
-            <marker date="1524995259000" expanded="true" signature="16404:16481" ph="INSERT INTO forsendelse_informationer... " />
-            <marker date="1524995259000" expanded="true" signature="17738:17833" ph="INSERT INTO vare... " />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#14313#14322#0" expanded="true" />
+            <element signature="e#15614#15623#0" expanded="true" />
+            <element signature="e#17010#17017#0" expanded="true" />
+            <marker date="1525464341000" expanded="true" signature="1742:1799" ph="SELECT * fro... bruger" />
+            <marker date="1525464341000" expanded="true" signature="3658:3716" ph="SELECT * fro... sælger" />
+            <marker date="1525464341000" expanded="true" signature="5592:5649" ph="SELECT * fro... admin" />
+            <marker date="1525464341000" expanded="true" signature="7178:7250" ph="INSERT INTO User... " />
+            <marker date="1525464341000" expanded="true" signature="8389:8461" ph="INSERT INTO `sælger`... " />
+            <marker date="1525464341000" expanded="true" signature="9645:9665" ph="SELECT * FRO... sælger" />
+            <marker date="1525464341000" expanded="true" signature="10852:10906" ph="INSERT INTO Tokens... " />
+            <marker date="1525464341000" expanded="true" signature="11341:11383" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="11988:12133" ph="SELECT user_... Bruger" />
+            <marker date="1525464341000" expanded="true" signature="13220:13254" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="13818:13856" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="14409:14427" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="15725:15770" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="17105:17124" ph="SELECT * FRO... ordre" />
+            <marker date="1525464341000" expanded="true" signature="18155:18188" ph="SELECT * ord... " />
+            <marker date="1525464341000" expanded="true" signature="19244:19321" ph="INSERT INTO forsendelse_informationer... " />
+            <marker date="1525464341000" expanded="true" signature="20578:20673" ph="INSERT INTO vare... " />
           </folding>
         </state>
       </provider>
@@ -768,7 +837,7 @@
         <state relative-caret-position="435">
           <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -779,22 +848,27 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1524995259000" expanded="true" signature="1761:1818" ph="SELECT * fro... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="3437:3509" ph="INSERT INTO User... " />
-            <marker date="1524995259000" expanded="true" signature="4648:4720" ph="INSERT INTO `sælger`... " />
-            <marker date="1524995259000" expanded="true" signature="5902:5922" ph="SELECT * FRO... sælger" />
-            <marker date="1524995259000" expanded="true" signature="7107:7161" ph="INSERT INTO Tokens... " />
-            <marker date="1524995259000" expanded="true" signature="7596:7638" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="8243:8388" ph="SELECT user_... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="9475:9509" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10073:10111" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10664:10682" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="11980:12025" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="13360:13379" ph="SELECT * FRO... ordre" />
-            <marker date="1524995259000" expanded="true" signature="14410:14443" ph="SELECT * ord... " />
-            <marker date="1524995259000" expanded="true" signature="15438:15475" ph="SELECT * FRO... User" />
-            <marker date="1524995259000" expanded="true" signature="16404:16481" ph="INSERT INTO forsendelse_informationer... " />
-            <marker date="1524995259000" expanded="true" signature="17738:17833" ph="INSERT INTO vare... " />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#14313#14322#0" expanded="true" />
+            <element signature="e#15614#15623#0" expanded="true" />
+            <element signature="e#17010#17017#0" expanded="true" />
+            <marker date="1525464341000" expanded="true" signature="1742:1799" ph="SELECT * fro... bruger" />
+            <marker date="1525464341000" expanded="true" signature="3658:3716" ph="SELECT * fro... sælger" />
+            <marker date="1525464341000" expanded="true" signature="5592:5649" ph="SELECT * fro... admin" />
+            <marker date="1525464341000" expanded="true" signature="7178:7250" ph="INSERT INTO User... " />
+            <marker date="1525464341000" expanded="true" signature="8389:8461" ph="INSERT INTO `sælger`... " />
+            <marker date="1525464341000" expanded="true" signature="9645:9665" ph="SELECT * FRO... sælger" />
+            <marker date="1525464341000" expanded="true" signature="10852:10906" ph="INSERT INTO Tokens... " />
+            <marker date="1525464341000" expanded="true" signature="11341:11383" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="11988:12133" ph="SELECT user_... Bruger" />
+            <marker date="1525464341000" expanded="true" signature="13220:13254" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="13818:13856" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="14409:14427" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="15725:15770" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="17105:17124" ph="SELECT * FRO... ordre" />
+            <marker date="1525464341000" expanded="true" signature="18155:18188" ph="SELECT * ord... " />
+            <marker date="1525464341000" expanded="true" signature="19244:19321" ph="INSERT INTO forsendelse_informationer... " />
+            <marker date="1525464341000" expanded="true" signature="20578:20673" ph="INSERT INTO vare... " />
           </folding>
         </state>
       </provider>
@@ -813,22 +887,27 @@
           <caret line="153" column="49" lean-forward="true" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1524995259000" expanded="true" signature="1761:1818" ph="SELECT * fro... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="3437:3509" ph="INSERT INTO User... " />
-            <marker date="1524995259000" expanded="true" signature="4648:4720" ph="INSERT INTO `sælger`... " />
-            <marker date="1524995259000" expanded="true" signature="5902:5922" ph="SELECT * FRO... sælger" />
-            <marker date="1524995259000" expanded="true" signature="7107:7161" ph="INSERT INTO Tokens... " />
-            <marker date="1524995259000" expanded="true" signature="7596:7638" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="8243:8388" ph="SELECT user_... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="9475:9509" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10073:10111" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10664:10682" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="11980:12025" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="13360:13379" ph="SELECT * FRO... ordre" />
-            <marker date="1524995259000" expanded="true" signature="14410:14443" ph="SELECT * ord... " />
-            <marker date="1524995259000" expanded="true" signature="15438:15475" ph="SELECT * FRO... User" />
-            <marker date="1524995259000" expanded="true" signature="16404:16481" ph="INSERT INTO forsendelse_informationer... " />
-            <marker date="1524995259000" expanded="true" signature="17738:17833" ph="INSERT INTO vare... " />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#14313#14322#0" expanded="true" />
+            <element signature="e#15614#15623#0" expanded="true" />
+            <element signature="e#17010#17017#0" expanded="true" />
+            <marker date="1525464341000" expanded="true" signature="1742:1799" ph="SELECT * fro... bruger" />
+            <marker date="1525464341000" expanded="true" signature="3658:3716" ph="SELECT * fro... sælger" />
+            <marker date="1525464341000" expanded="true" signature="5592:5649" ph="SELECT * fro... admin" />
+            <marker date="1525464341000" expanded="true" signature="7178:7250" ph="INSERT INTO User... " />
+            <marker date="1525464341000" expanded="true" signature="8389:8461" ph="INSERT INTO `sælger`... " />
+            <marker date="1525464341000" expanded="true" signature="9645:9665" ph="SELECT * FRO... sælger" />
+            <marker date="1525464341000" expanded="true" signature="10852:10906" ph="INSERT INTO Tokens... " />
+            <marker date="1525464341000" expanded="true" signature="11341:11383" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="11988:12133" ph="SELECT user_... Bruger" />
+            <marker date="1525464341000" expanded="true" signature="13220:13254" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="13818:13856" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="14409:14427" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="15725:15770" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="17105:17124" ph="SELECT * FRO... ordre" />
+            <marker date="1525464341000" expanded="true" signature="18155:18188" ph="SELECT * ord... " />
+            <marker date="1525464341000" expanded="true" signature="19244:19321" ph="INSERT INTO forsendelse_informationer... " />
+            <marker date="1525464341000" expanded="true" signature="20578:20673" ph="INSERT INTO vare... " />
           </folding>
         </state>
       </provider>
@@ -846,7 +925,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -862,7 +941,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -885,7 +963,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -909,7 +986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="5" lean-forward="false" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -917,7 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,15 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1110">
           <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -942,99 +1008,6 @@
         <state relative-caret-position="270">
           <caret line="22" column="26" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="35" column="53" lean-forward="false" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Seller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="89" column="5" lean-forward="true" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding>
-            <element signature="e#1607#1608#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1692#1693#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/SellerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="77" column="24" lean-forward="false" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SendingInfoEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="359" column="0" lean-forward="true" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1524995259000" expanded="true" signature="1761:1818" ph="SELECT * fro... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="3437:3509" ph="INSERT INTO User... " />
-            <marker date="1524995259000" expanded="true" signature="4648:4720" ph="INSERT INTO `sælger`... " />
-            <marker date="1524995259000" expanded="true" signature="5902:5922" ph="SELECT * FRO... sælger" />
-            <marker date="1524995259000" expanded="true" signature="7107:7161" ph="INSERT INTO Tokens... " />
-            <marker date="1524995259000" expanded="true" signature="7596:7638" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="8243:8388" ph="SELECT user_... Bruger" />
-            <marker date="1524995259000" expanded="true" signature="9475:9509" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10073:10111" ph="DELETE FROM " />
-            <marker date="1524995259000" expanded="true" signature="10664:10682" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="11980:12025" ph="SELECT * FRO... vare" />
-            <marker date="1524995259000" expanded="true" signature="13360:13379" ph="SELECT * FRO... ordre" />
-            <marker date="1524995259000" expanded="true" signature="14410:14443" ph="SELECT * ord... " />
-            <marker date="1524995259000" expanded="true" signature="15438:15475" ph="SELECT * FRO... User" />
-            <marker date="1524995259000" expanded="true" signature="16404:16481" ph="INSERT INTO forsendelse_informationer... " />
-            <marker date="1524995259000" expanded="true" signature="17738:17833" ph="INSERT INTO vare... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,41 +1023,135 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="35" lean-forward="false" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding>
-            <element signature="e#404#405#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#537#538#0" expanded="true" />
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#610#611#0" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#806#807#0" expanded="true" />
-            <element signature="e#837#838#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#904#905#0" expanded="true" />
-            <element signature="e#936#937#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="39" column="9" lean-forward="false" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/OrdreEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="47" column="1" lean-forward="false" selection-start-line="47" selection-start-column="1" selection-end-line="47" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/ProductEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="54" column="90" lean-forward="true" selection-start-line="54" selection-start-column="90" selection-end-line="54" selection-end-column="90" />
+        <state relative-caret-position="240">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/UserEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="15" column="16" lean-forward="false" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        <state relative-caret-position="37">
+          <caret line="26" column="27" lean-forward="false" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/controller/SellerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Seller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/dbmanager/DbManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="138" column="37" lean-forward="false" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#14313#14322#0" expanded="true" />
+            <element signature="e#15614#15623#0" expanded="true" />
+            <element signature="e#17010#17017#0" expanded="true" />
+            <marker date="1525464341000" expanded="true" signature="1742:1799" ph="SELECT * fro... bruger" />
+            <marker date="1525464341000" expanded="true" signature="3658:3716" ph="SELECT * fro... sælger" />
+            <marker date="1525464341000" expanded="true" signature="5592:5649" ph="SELECT * fro... admin" />
+            <marker date="1525464341000" expanded="true" signature="7178:7250" ph="INSERT INTO User... " />
+            <marker date="1525464341000" expanded="true" signature="8389:8461" ph="INSERT INTO `sælger`... " />
+            <marker date="1525464341000" expanded="true" signature="9645:9665" ph="SELECT * FRO... sælger" />
+            <marker date="1525464341000" expanded="true" signature="10852:10906" ph="INSERT INTO Tokens... " />
+            <marker date="1525464341000" expanded="true" signature="11341:11383" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="11988:12133" ph="SELECT user_... Bruger" />
+            <marker date="1525464341000" expanded="true" signature="13220:13254" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="13818:13856" ph="DELETE FROM " />
+            <marker date="1525464341000" expanded="true" signature="14409:14427" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="15725:15770" ph="SELECT * FRO... vare" />
+            <marker date="1525464341000" expanded="true" signature="17105:17124" ph="SELECT * FRO... ordre" />
+            <marker date="1525464341000" expanded="true" signature="18155:18188" ph="SELECT * ord... " />
+            <marker date="1525464341000" expanded="true" signature="19244:19321" ph="INSERT INTO forsendelse_informationer... " />
+            <marker date="1525464341000" expanded="true" signature="20578:20673" ph="INSERT INTO vare... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SendingInfoEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="14" column="38" lean-forward="true" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/SellerEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="21" column="67" lean-forward="true" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/endpoints/AdminEndpoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="12" column="15" lean-forward="false" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/server/models/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
