@@ -379,6 +379,37 @@ public class DbManager {
             } }return ordrer;
     }
 
+    public Order getOrderFromUserId(int userId) throws SQLException{
+        ResultSet resultSet = null;
+        Order order = null;
+
+        try {
+            PreparedStatement getOrderFromUserId = connection
+                    .prepareStatement("SELECT * ordre WHERE bruger_bruger_id = ?");
+
+            getOrderFromUserId.setInt(1, userId);
+
+            resultSet = getOrderFromUserId.executeQuery();
+
+            while (resultSet.next()) {
+                order = new Order();
+                order.setOrderID(resultSet.getInt("ordre_id"));
+                order.setOrderDate(resultSet.getString("ordre_date"));
+                order.setOrderPrice(resultSet.getString("total_ordre_pris"));
+
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            }
+        }
+        return order;
+    }
     public Order getOrderFromId(int ordreID) throws SQLException{
         ResultSet resultSet = null;
         Order order = null;
@@ -409,9 +440,6 @@ public class DbManager {
             }
         }
         return order;
-
-
-
     }
 
 
