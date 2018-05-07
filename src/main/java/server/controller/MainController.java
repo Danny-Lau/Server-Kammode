@@ -1,14 +1,8 @@
 package server.controller;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
 import server.dbmanager.DbManager;
 import server.models.SendingInfo;
-import server.models.User;
 import server.utility.Digester;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
 
 
 public class MainController {
@@ -43,7 +37,7 @@ public class MainController {
 
     public SendingInfo createSendingInfo(SendingInfo sendingingfor){
         DbManager dbManager = new DbManager();
-        SendingInfo createdSendinginfo = dbManager.createSendinngInfo(sendingingfor);
+        SendingInfo createdSendinginfo = dbManager.createShippingInfo(sendingingfor);
         if(createdSendinginfo != null) {
             return createdSendinginfo;
         } else {

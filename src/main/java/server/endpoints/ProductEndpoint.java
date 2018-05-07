@@ -2,7 +2,6 @@ package server.endpoints;
 
 import com.google.gson.Gson;
 import server.controller.ProductController;
-import server.controller.TokenController;
 import server.dbmanager.DbManager;
 import server.models.Product;
 import server.utility.CurrentUserContext;
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 public class ProductEndpoint {
 
     DbManager db = new DbManager();
-    TokenController tokenController = new TokenController();
+
     ProductController productController = new ProductController();
 
     @GET
@@ -71,10 +70,7 @@ public class ProductEndpoint {
     @DELETE
     @Path("{deleteId}")
 
-    public Response deleteProduct(@HeaderParam("authorization") String token, @PathParam("deleteId") int productId) throws SQLException{
-        CurrentUserContext currentUser = tokenController.getUserFromTokens(token);
-
-        if(currentUser.getCurrentUser() != null && currentUser.isSeller()){
+    public Response deleteProduct(@PathParam("deleteId") int productId) throws SQLException{
             Boolean productDeleted = productController.deleteProduct(productId);
             if(productDeleted == true) {
                 Globals.log.writeLog(this.getClass().getName(), this, "Product deleted", 2);
@@ -83,10 +79,6 @@ public class ProductEndpoint {
                 Globals.log.writeLog(this.getClass().getName(), this, "Delete product attempt failed", 2);
                 return Response.status(400).type("text/plain").entity("Error deleting product").build();
             }
-        } else {
-            Globals.log.writeLog(this.getClass().getName(), this, "Unauthorized - delete product", 2);
-            return Response.status(401).type("text/plain").entity("Unauthorized").build();
-        }
     }
 }
 

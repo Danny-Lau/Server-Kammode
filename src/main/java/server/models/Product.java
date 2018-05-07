@@ -21,9 +21,12 @@ public class Product {
         this.url = url;
     }
 
+
     public Product(){
 
     }
+
+
 
     public int getProductID() {
         return productID;
@@ -45,7 +48,7 @@ public class Product {
         return stock;
     }
 
-    public void setStock(int numbers) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
