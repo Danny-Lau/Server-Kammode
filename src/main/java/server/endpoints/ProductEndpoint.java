@@ -36,26 +36,18 @@ public class ProductEndpoint {
 
     //Method for creating a product
     @POST
-    public Response createProduct(@HeaderParam("authorization") String token, String product) throws SQLException{
-        CurrentUserContext currentUser = tokenController.getUserFromTokens(token);
+    public Response createProduct(String product) throws SQLException{
 
-        if(currentUser.getCurrentUser() != null && currentUser.isSeller()){
-            Product productCreated = productController.createProduct(new Gson().fromJson(product, Product.class));
-            String newProduct = new Gson().toJson(productCreated);
+            Product productCreated = new Gson().fromJson(product, Product.class);
+            String newProduct = new Gson().toJson(db.createProduct(productCreated));
 
-            if(productCreated != null){
+            if(newProduct != null){
                 Globals.log.writeLog(this.getClass().getName(), this, "Product created", 2);
                 return Response.status(200).type("application/json").entity(new Gson().toJson(newProduct)).build();
             } else {
                 Globals.log.writeLog(this.getClass().getName(), this, "No input to new Product", 2);
                 return Response.status(400).type("text/plain").entity("Failed creating Product").build();
             }
-        } else {
-            Globals.log.writeLog(this.getClass().getName(), this, "Unauthorized - create Product", 2);
-            return Response.status(401).type("text/plain").entity("Unauthorized").build();
-
-            }
-
         }
 
 

@@ -40,12 +40,6 @@ public class MainController {
         }
     }*/
 
-    //Logic behind creating user.
-    public User createUser(User user) {
-        DbManager dbManager = new DbManager();
-
-        return dbManager.createUser(user);
-    }
 
     public SendingInfo createSendingInfo(SendingInfo sendingingfor){
         DbManager dbManager = new DbManager();

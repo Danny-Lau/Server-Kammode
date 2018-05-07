@@ -7,9 +7,9 @@ public class User {
     private String mail;
     private String password;
     private int type;
-    private Long timeCreated;
+    private long timeCreated;
 
-    public User(String username, String mail, String password, int type, Long timeCreated) {
+    public User(String username, String mail, String password, int type, long timeCreated) {
         this.username = username;
         this.mail = mail;
         this.password = password;
@@ -65,7 +65,7 @@ public class User {
         return timeCreated;
     }
 
-    public void setTimeCreated(Long timeCreated) {
+    public void setTimeCreated(long timeCreated) {
         this.timeCreated = timeCreated;
     }
 }

@@ -41,9 +41,10 @@ import java.sql.SQLException;
         @Path("/signup")
         //Creating a new user
         public Response signUp(String user) {
-            User createdUser = mainController.createUser(new Gson().fromJson(user, User.class));
-            String newUser = new Gson().toJson(createdUser);
+            User createdUser = new Gson().fromJson(user, User.class);
+            String newUser = new Gson().toJson(db.createUser(createdUser));
             newUser = crypter.encryptAndDecryptXor(newUser);
+
 
             if (createdUser != null) {
                 Globals.log.writeLog(this.getClass().getName(), this, "User created", 2);

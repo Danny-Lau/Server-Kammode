@@ -172,10 +172,10 @@ public class DbManager {
     public User createUser(User user) throws IllegalArgumentException {
         //Try-catch method to avoid the program crashing on exceptions
         try {
-            PreparedStatement createUser = connection.prepareStatement("INSERT INTO User (username, password, time_created, mail) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createUser = connection.prepareStatement("INSERT INTO bruger (user_name, password, mail) VALUES (?,?,?)", Statement.RETURN_GENERATED_KEYS);
             createUser.setString(1, user.getUsername());
             createUser.setString(2, user.getPassword());
-            createUser.setLong(3, user.getTimeCreated());
+            createUser.setString(3, user.getMail());
 
             //rowsAffected
             int rowsAffected = createUser.executeUpdate();
@@ -187,7 +187,6 @@ public class DbManager {
                 } else {
                     user = null;
                 }
-                user.setType(2);
                 return user;
             }
             //Exception to avoid crashing
