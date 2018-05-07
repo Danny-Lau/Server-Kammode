@@ -368,7 +368,7 @@ public class DbManager {
             while (resultSet.next()){
                 Product product = new Product();
                 product.setProductID(resultSet.getInt("vare_id"));
-                product.setNumbers(resultSet.getInt("antal"));
+                product.setStock(resultSet.getInt("antal"));
                 product.setPrice(resultSet.getString("pris"));
                 product.setSellerID(resultSet.getInt("sælger_sælger_id"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
@@ -398,7 +398,7 @@ public class DbManager {
             while (resultSet.next()){
                 Product product = new Product();
                 product.setProductID(resultSet.getInt("vare_id"));
-                product.setNumbers(resultSet.getInt("antal"));
+                product.setStock(resultSet.getInt("antal"));
                 product.setPrice(resultSet.getString("pris"));
                 product.setSellerID(resultSet.getInt("sælger_sælger_id"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
@@ -512,7 +512,7 @@ public class DbManager {
         try{
             PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             createProduct.setString(1, product.getProductDescription());
-            createProduct.setInt(2, product.getNumbers());
+            createProduct.setInt(2, product.getStock());
             createProduct.setInt(3, product.getSellerID());
             createProduct.setString(4, product.getPrice());
             createProduct.setString(5, product.getVariant());
