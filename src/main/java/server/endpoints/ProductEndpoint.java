@@ -36,7 +36,9 @@ public class ProductEndpoint {
 
     //Method for creating a product
     @POST
+    @Path("/New")
     public Response createProduct(String product) throws SQLException{
+
 
             Product productCreated = new Gson().fromJson(product, Product.class);
             String newProduct = new Gson().toJson(db.createProduct(productCreated));

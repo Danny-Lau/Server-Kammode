@@ -368,7 +368,7 @@ public class DbManager {
             while (resultSet.next()){
                 Product product = new Product();
                 product.setProductID(resultSet.getInt("vare_id"));
-                product.setNumbers(resultSet.getInt("antal"));
+                product.setStock(resultSet.getInt("antal"));
                 product.setPrice(resultSet.getString("pris"));
                 product.setSellerID(resultSet.getInt("sælger_sælger_id"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
@@ -398,7 +398,7 @@ public class DbManager {
             while (resultSet.next()){
                 Product product = new Product();
                 product.setProductID(resultSet.getInt("vare_id"));
-                product.setNumbers(resultSet.getInt("antal"));
+                product.setStock(resultSet.getInt("antal"));
                 product.setPrice(resultSet.getString("pris"));
                 product.setSellerID(resultSet.getInt("sælger_sælger_id"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
@@ -510,16 +510,19 @@ public class DbManager {
     public Product createProduct(Product product) throws IllegalArgumentException{
         //Try-catch method to avoid the program crashing on exceptions
         try{
-            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1, gender, url) VALUES(?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+
             createProduct.setString(1, product.getProductDescription());
-            createProduct.setInt(2, product.getNumbers());
+            createProduct.setInt(2, product.getStock());
             createProduct.setInt(3, product.getSellerID());
             createProduct.setString(4, product.getPrice());
             createProduct.setString(5, product.getVariant());
+            createProduct.setString(6,product.getGender());
+            createProduct.setString(7,product.getUrl());
 
             //rowsAffected
             int rowsaffected = createProduct.executeUpdate();
-            if(rowsaffected ==1){
+            if(rowsaffected == 1){
                 ResultSet resultSet = createProduct.getGeneratedKeys();
                 if(resultSet != null && resultSet.next()){
                     int autoIncrementedProductId = resultSet.getInt(1);
