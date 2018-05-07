@@ -260,70 +260,6 @@ public class DbManager {
             } }return sellers;
     }
 
-
-    public void createToken(String token, int userId) {
-        try {
-            PreparedStatement addTokenStatement = connection.prepareStatement("INSERT INTO Tokens (token, token_user_id) VALUES (?,?)");
-            addTokenStatement.setString(1, token);
-            addTokenStatement.setInt(2, userId);
-            addTokenStatement.executeUpdate();
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-            close();
-        }
-    }
-
-    public boolean deleteToken(int userId) throws SQLException {
-        try {
-            PreparedStatement deleteTokenStatement = connection.prepareStatement("DELETE FROM Tokens WHERE token_user_id = ?");
-            deleteTokenStatement.setInt(1, userId);
-
-            int rowsAffected = deleteTokenStatement.executeUpdate();
-            if (rowsAffected == 1) {
-                return true;
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-            close();
-        }
-        return false;
-    }
-
-
-    public User getUserFromToken(String token) throws SQLException {
-        ResultSet resultSet = null;
-        User userFromToken = null;
-
-        try {
-            PreparedStatement getUserFromToken = connection
-                    .prepareStatement("SELECT user_name, bruger_id, mail, `type`, time_created FROM `Bruger` u INNER JOIN Tokens t ON t.tokens_bruger_id = u.bruger_id WHERE t.token = ?");
-
-            getUserFromToken.setString(1, token);
-            resultSet = getUserFromToken.executeQuery();
-
-            while (resultSet.next()) {
-                userFromToken = new User();
-                userFromToken.setBrugerId(resultSet.getInt("user_id"));
-                userFromToken.setUsername(resultSet.getString("username"));
-                userFromToken.setType(resultSet.getInt("type"));
-                userFromToken.setTimeCreated(resultSet.getLong("time_created"));
-
-            }
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        } finally {
-            try {
-                resultSet.close();
-            } catch (SQLException exception) {
-                exception.printStackTrace();
-                close();
-            }
-        }
-        return userFromToken;
-
-    }
-
     //Method for deleting a product and it´ sub-tables
     public boolean deleteProduct(int productId) throws IllegalArgumentException{
         try {
@@ -510,12 +446,14 @@ public class DbManager {
     public Product createProduct(Product product) throws IllegalArgumentException{
         //Try-catch method to avoid the program crashing on exceptions
         try{
-            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1) VALUES(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, antal, sælger_sælger_id, pris, variant_1, gender, url) VALUES(?, ?, ?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             createProduct.setString(1, product.getProductDescription());
             createProduct.setInt(2, product.getStock());
             createProduct.setInt(3, product.getSellerID());
             createProduct.setString(4, product.getPrice());
             createProduct.setString(5, product.getVariant());
+            createProduct.setString(6,product.getGender());
+            createProduct.setLong(7,product.getUrl());
 
             //rowsAffected
             int rowsaffected = createProduct.executeUpdate();

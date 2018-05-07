@@ -8,12 +8,14 @@ public class Product {
    private String price;
    private String variant;
    private String gender;
+   private Long url;
 
 
 
-    public Product(String productDescription, int numbers, int sellerID, String price, String variant, String gender) {
+    public Product(String productDescription, int sellerID, String price, String variant, String gender, Long url) {
         this.productDescription = productDescription;
         this.stock = stock;
+        this.url = url;
         this.sellerID = sellerID;
         this.price = price;
         this.variant = variant;
@@ -31,6 +33,14 @@ public class Product {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public Long getUrl() {
+        return url;
+    }
+
+    public void setUrl(Long url) {
+        this.url = url;
     }
 
     public int getProductID() {
