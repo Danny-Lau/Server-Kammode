@@ -10,7 +10,6 @@ public class TokenController {
 
 
     public TokenController() {
-        String hej hej;
 
     }
 
