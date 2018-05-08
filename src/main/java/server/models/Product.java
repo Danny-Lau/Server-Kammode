@@ -9,9 +9,10 @@ public class Product {
    private String variant;
    private String gender;
    private String url;
+   private String category;
 
 
-    public Product(String productDescription, int stock, int sellerID, String price, String variant, String gender, String url) {
+    public Product(String productDescription, int stock, int sellerID, String price, String variant, String gender, String url, String category) {
         this.productDescription = productDescription;
         this.stock = stock;
         this.sellerID = sellerID;
@@ -19,6 +20,7 @@ public class Product {
         this.variant = variant;
         this.gender = gender;
         this.url = url;
+        this.category = category;
     }
 
 
@@ -90,5 +92,13 @@ public class Product {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

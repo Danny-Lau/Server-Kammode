@@ -51,8 +51,23 @@ public class ProductEndpoint {
             }
         }
 
+    @Path("id/{ProductId}/")
+    @GET
+    public Response getProductsFromProductId ( @PathParam("ProductId") int productId) throws  SQLException{
+        ArrayList<Product> productsFromProductsId = db.getProductsFromProductId(productId);
+        String getProductsFromSellerID = new Gson().toJson(productsFromProductsId);
 
-    @Path("{SellerId}")
+        if(productsFromProductsId != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific product ID loaded",2);
+            return Response.status(200).type("application/json").entity(getProductsFromSellerID).build();
+
+        }else {
+            return Response.status(204).type("text/plain").entity("No products").build();
+        }
+    }
+
+
+    @Path("/{SellerId}")
     @GET
     public Response getProductsFromSellerID ( @PathParam("SellerId") int sellerId) throws  SQLException{
         ArrayList<Product> productsFromSellerID = db.getProductsFromSellerID(sellerId);
@@ -64,6 +79,21 @@ public class ProductEndpoint {
 
         }else {
             return Response.status(204).type("text/plain").entity("This Seller have no products").build();
+        }
+    }
+
+    @Path("/category/{Category}")
+    @GET
+    public Response getProductsFromCategory ( @PathParam("Category") int category) throws SQLException{
+        ArrayList<Product> productsFromCategory = db.getProductsFromCategory(category);
+        String getProductsFromCategory = new Gson().toJson(productsFromCategory);
+
+        if(productsFromCategory != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Products from specifik category loaded",2);
+            return Response.status(200).type("application/json").entity(getProductsFromCategory).build();
+
+        }else {
+            return Response.status(204).type("text/plain").entity("No product in this category").build();
         }
     }
 

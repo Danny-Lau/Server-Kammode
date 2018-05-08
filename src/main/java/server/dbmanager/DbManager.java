@@ -361,7 +361,7 @@ public class DbManager {
 
     public ArrayList<Product> loadAllProduct(){
         ResultSet resultSet = null;
-        ArrayList<Product> allProduct = new ArrayList<Product>();
+        ArrayList<Product> allProduct = new ArrayList<>();
         try{
             PreparedStatement loadVare = connection.prepareStatement("SELECT * FROM vare");
             resultSet = loadVare.executeQuery();
@@ -387,14 +387,15 @@ public class DbManager {
             } }return allProduct;
     }
 
-    public ArrayList<Product> getProductsFromSellerID(int sellerId){
+    public ArrayList<Product> getProductsFromProductId(int productId){
         ResultSet resultSet = null;
-        ArrayList<Product> allProductFromSellerId = new ArrayList<Product>();
+        ArrayList<Product> allProductFromProductId = new ArrayList<>();
         try{
-            PreparedStatement getProductsFromSellerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
+            PreparedStatement getProductsFromProductId = connection.prepareStatement("SELECT * FROM vare WHERE vare_id = ? ");
+            getProductsFromProductId.setInt(1, productId);
 
-            getProductsFromSellerID.setInt(1, sellerId);
-            resultSet = getProductsFromSellerID.executeQuery();
+            resultSet = getProductsFromProductId.executeQuery();
+
             while (resultSet.next()){
                 Product product = new Product();
                 product.setProductID(resultSet.getInt("vare_id"));
@@ -403,6 +404,76 @@ public class DbManager {
                 product.setSellerID(resultSet.getInt("sælger_sælger_id"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 product.setVariant(resultSet.getString("variant_1"));
+                product.setGender(resultSet.getString("gender"));
+                product.setUrl(resultSet.getString("url"));
+                product.setCategory(resultSet.getString("kategori"));
+                allProductFromProductId.add(product);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return allProductFromProductId;
+    }
+    public ArrayList<Product> getProductsFromCategory(int category){
+        ResultSet resultSet = null;
+        ArrayList<Product> allProductFromCategory = new ArrayList<>();
+        try{
+            PreparedStatement getProductsFromCategory = connection.prepareStatement("SELECT * FROM vare WHERE kategori = ? ");
+            getProductsFromCategory.setInt(1, category);
+
+            resultSet = getProductsFromCategory.executeQuery();
+
+            while (resultSet.next()){
+                Product product = new Product();
+                product.setProductID(resultSet.getInt("vare_id"));
+                product.setStock(resultSet.getInt("antal"));
+                product.setPrice(resultSet.getString("pris"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setProductDescription(resultSet.getString("vare_beskrivelse"));
+                product.setVariant(resultSet.getString("variant_1"));
+                product.setGender(resultSet.getString("gender"));
+                product.setUrl(resultSet.getString("url"));
+                product.setCategory(resultSet.getString("kategori"));
+                allProductFromCategory.add(product);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return allProductFromCategory;
+    }
+
+    public ArrayList<Product> getProductsFromSellerID(int sellerId){
+        ResultSet resultSet = null;
+        ArrayList<Product> allProductFromSellerId = new ArrayList<>();
+        try{
+            PreparedStatement getProductsFromSellerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
+            getProductsFromSellerID.setInt(1, sellerId);
+
+            resultSet = getProductsFromSellerID.executeQuery();
+
+            while (resultSet.next()){
+                Product product = new Product();
+                product.setProductID(resultSet.getInt("vare_id"));
+                product.setStock(resultSet.getInt("antal"));
+                product.setPrice(resultSet.getString("pris"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setProductDescription(resultSet.getString("vare_beskrivelse"));
+                product.setVariant(resultSet.getString("variant_1"));
+                product.setGender(resultSet.getString("gender"));
+                product.setUrl(resultSet.getString("url"));
+                product.setCategory(resultSet.getString("kategori"));
                 allProductFromSellerId.add(product);
             }
         }catch (SQLException exception) {
@@ -420,7 +491,7 @@ public class DbManager {
 
     public ArrayList<Order> loadOrdre(){
         ResultSet resultSet = null;
-        ArrayList<Order> ordrer = new ArrayList<Order>();
+        ArrayList<Order> ordrer = new ArrayList<>();
         try{
             PreparedStatement loadOrdre = connection.prepareStatement("SELECT * FROM ordre");
             resultSet = loadOrdre.executeQuery();
