@@ -21,9 +21,12 @@ public class Product {
         this.url = url;
     }
 
+
     public Product(){
 
     }
+
+
 
     public int getProductID() {
         return productID;
