@@ -480,24 +480,24 @@ public class DbManager {
 
 
     // Method for creating sending information - Boolean returned, which decides if the information is created or not
-    public SendingInfo createSendinngInfo(SendingInfo sendingInfo) throws IllegalArgumentException{
+    public ShippingInfo createShippingInfo(ShippingInfo shippingInfo) throws IllegalArgumentException{
 
         try {
             PreparedStatement createSendingInfo = connection.prepareStatement("INSERT INTO forsendelse_informationer (adresse, postnummer, by) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
-            createSendingInfo.setString(1, sendingInfo.getAdress());
-            createSendingInfo.setInt(2, sendingInfo.getPostNumber());
-            createSendingInfo.setString(3, sendingInfo.getCity());
+            createSendingInfo.setString(1, shippingInfo.getAdress());
+            createSendingInfo.setInt(2, shippingInfo.getPostNumber());
+            createSendingInfo.setString(3, shippingInfo.getCity());
 
             int rowsaffected = createSendingInfo.executeUpdate();
             if(rowsaffected == 1){
                 ResultSet resultSet = createSendingInfo.getGeneratedKeys();
                 if(resultSet != null && resultSet.next()){
                     int autoIncrementedSendingInfoId = resultSet.getInt(1);
-                    sendingInfo.setSendinginfoId(autoIncrementedSendingInfoId);
+                    shippingInfo.setShippingInforId(autoIncrementedSendingInfoId);
                 } else {
-                    sendingInfo = null;
+                    shippingInfo = null;
                 }
-                return sendingInfo;
+                return shippingInfo;
             }
         } catch (SQLException exception){
             exception.printStackTrace();

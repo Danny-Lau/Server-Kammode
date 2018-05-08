@@ -1,24 +1,24 @@
 package server.models;
 
-public class SendingInfo {
+public class ShippingInfo {
 
-    private int SendinginfoId;
+    private int shippingInforId;
     private String adress;
     private int postNumber;
     private String city;
 
-    public SendingInfo(String adress, int postNumber, String city) {
+    public ShippingInfo(String adress, int postNumber, String city) {
         this.adress = adress;
         this.postNumber = postNumber;
         this.city = city;
     }
 
-    public int getSendinginfoId() {
-        return SendinginfoId;
+    public int getShippingInforId() {
+        return shippingInforId;
     }
 
-    public void setSendinginfoId(int sendinginfoId) {
-        SendinginfoId = sendinginfoId;
+    public void setShippingInforId(int shippingInforId) {
+        this.shippingInforId = shippingInforId;
     }
 
     public String getAdress() {

@@ -1,7 +1,7 @@
 package server.controller;
 
 import server.dbmanager.DbManager;
-import server.models.SendingInfo;
+import server.models.ShippingInfo;
 import server.utility.Digester;
 
 
@@ -35,9 +35,9 @@ public class MainController {
     }*/
 
 
-    public SendingInfo createSendingInfo(SendingInfo sendingingfor){
+    public ShippingInfo createSendingInfo(ShippingInfo sendingingfor){
         DbManager dbManager = new DbManager();
-        SendingInfo createdSendinginfo = dbManager.createShippingInfo(sendingingfor);
+        ShippingInfo createdSendinginfo = dbManager.createShippingInfo(sendingingfor);
         if(createdSendinginfo != null) {
             return createdSendinginfo;
         } else {
