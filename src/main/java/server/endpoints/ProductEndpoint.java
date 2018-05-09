@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import server.controller.ProductController;
 import server.dbmanager.DbManager;
 import server.models.Product;
+import server.models.Size;
 import server.utility.CurrentUserContext;
 import server.utility.Globals;
 
@@ -50,6 +51,38 @@ public class ProductEndpoint {
                 return Response.status(400).type("text/plain").entity("Failed creating Product").build();
             }
         }
+    @POST
+    @Path("/New/size")
+    public Response createProductSize(String size) throws SQLException{
+
+
+        Size ProductSize = new Gson().fromJson(size, Size.class);
+        String newProductSize = new Gson().toJson(db.createSize(ProductSize));
+
+        if(newProductSize != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Product created", 2);
+            return Response.status(200).type("application/json").entity(new Gson().toJson(newProductSize)).build();
+        } else {
+            Globals.log.writeLog(this.getClass().getName(), this, "No input to new Product", 2);
+            return Response.status(400).type("text/plain").entity("Failed creating Product size").build();
+        }
+    }
+    @POST
+    @Path("/Update/Size/Stock")
+    public Response UpdateProductSize(String size) throws SQLException{
+
+
+        Size ProductSize = new Gson().fromJson(size, Size.class);
+        String newProductSize = new Gson().toJson(db.updateSize(ProductSize));
+
+        if(newProductSize != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Product created", 2);
+            return Response.status(200).type("application/json").entity(new Gson().toJson(newProductSize)).build();
+        } else {
+            Globals.log.writeLog(this.getClass().getName(), this, "No input to new Product", 2);
+            return Response.status(400).type("text/plain").entity("Failed creating Product size").build();
+        }
+    }
 
     @Path("id/{ProductId}/")
     @GET
@@ -66,6 +99,20 @@ public class ProductEndpoint {
         }
     }
 
+    @Path("sizeID/{ProductId}/")
+    @GET
+    public Response getSizeFromProductId ( @PathParam("ProductId") int productId) throws  SQLException{
+        ArrayList<Size> sizeFromProductsId = db.getSizeFromProductId(productId);
+        String SizeFromIDOout = new Gson().toJson(sizeFromProductsId);
+
+        if(sizeFromProductsId != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific product ID loaded",2);
+            return Response.status(200).type("application/json").entity(SizeFromIDOout).build();
+
+        }else {
+            return Response.status(204).type("text/plain").entity("No products").build();
+        }
+    }
 
     @Path("/{SellerId}")
     @GET

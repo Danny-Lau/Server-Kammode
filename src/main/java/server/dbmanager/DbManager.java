@@ -197,6 +197,35 @@ public class DbManager {
         return null;
     }
 
+    public Size createSize(Size size) throws IllegalArgumentException{
+
+        try{
+            PreparedStatement createSize = connection
+                    .prepareStatement("INSERT INTO størelse (Størelse, antal, vare_vare_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
+
+            createSize.setInt(1, size.getSize());
+            createSize.setInt(2, size.getStock());
+            createSize.setInt(3, size.getProductId());
+
+            int rowsAffected = createSize.executeUpdate();
+            if (rowsAffected == 1) {
+                ResultSet rs = createSize.getGeneratedKeys();
+                if (rs != null && rs.next()) {
+                    int autoIncrementedId = rs.getInt(1);
+                    size.setSizeId(autoIncrementedId);
+                } else {
+                    size = null;
+                }
+                return size;
+            }
+
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+            close();
+        }
+
+     return null;
+    }
 
     public Seller createSeller(Seller seller) throws IllegalArgumentException{
         //Try-catch
@@ -220,7 +249,6 @@ public class DbManager {
                 } else {
                     seller = null;
                 }
-                seller.setType(1);
                 return seller;
             }
         } catch (SQLException exception) {
@@ -416,6 +444,63 @@ public class DbManager {
                 close();
             } }return allProductFromProductId;
     }
+
+    public ArrayList<Size> getSizeFromProductId(int productId){
+        ResultSet resultSet = null;
+        ArrayList<Size> allSizeFromProductId = new ArrayList<>();
+        try{
+            PreparedStatement getSizeFromProductId = connection.prepareStatement("SELECT * FROM størelser WHERE vare_vare_id = ? ");
+            getSizeFromProductId.setInt(1, productId);
+
+            resultSet = getSizeFromProductId.executeQuery();
+
+            while (resultSet.next()){
+                Size size = new Size();
+                size.setSizeId(resultSet.getInt("størelse_id"));
+                size.setSize(resultSet.getInt("Størelse"));
+                size.setProductId(resultSet.getInt("vare_vare_id"));
+                size.setStock(resultSet.getInt("antal"));
+                allSizeFromProductId.add(size);
+            }
+        }catch (SQLException exception) {
+            exception.printStackTrace();
+        } finally {
+            try {
+                //closing the resultSet, because its a temporary table of content
+                resultSet.close();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+                close();
+            } }return allSizeFromProductId;
+    }
+
+    public ArrayList<Size> updateSize(Size size){
+        ResultSet resultSet = null;
+        ArrayList<Size> sizeOut = null;
+
+        try{
+        PreparedStatement updateSize = connection.prepareStatement("UPDATE størelse WHERE vare_vare_id, størelseId = ?,? SET antal = ?");
+        updateSize.setInt(1, size.getProductId());
+        updateSize.setInt(2, size.getSizeId());
+        updateSize.setInt(3, size.getStock());
+
+        int rowsaffected = updateSize.executeUpdate();
+            if(rowsaffected == 1){
+                resultSet = updateSize.getGeneratedKeys();
+                if(resultSet != null && resultSet.next()){
+                    sizeOut.add(size);
+                } else {
+                    sizeOut = null;
+                }
+                return sizeOut;
+            }
+        } catch (SQLException exception){
+            exception.printStackTrace();
+            close();
+        }
+        return null;
+    }
+
     public ArrayList<Product> getProductsFromCategory(String category){
         ResultSet resultSet = null;
         ArrayList<Product> allProductFromCategory = new ArrayList<>();
