@@ -84,16 +84,30 @@ public class ProductEndpoint {
 
     @Path("/category/{Category}")
     @GET
-    public Response getProductsFromCategory ( @PathParam("Category") int category) throws SQLException{
+    public Response getProductsFromCategory ( @PathParam("Category") String category) throws SQLException{
         ArrayList<Product> productsFromCategory = db.getProductsFromCategory(category);
         String getProductsFromCategory = new Gson().toJson(productsFromCategory);
 
         if(productsFromCategory != null){
-            Globals.log.writeLog(this.getClass().getName(), this, "Products from specifik category loaded",2);
+            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific category loaded",2);
             return Response.status(200).type("application/json").entity(getProductsFromCategory).build();
 
         }else {
             return Response.status(204).type("text/plain").entity("No product in this category").build();
+        }
+    }
+    @Path("/gender/{Gender}")
+    @GET
+    public Response getProductsFromGender ( @PathParam("Gender") String gender) throws SQLException{
+        ArrayList<Product> productsFromGender = db.getProductsFromGender(gender);
+        String getProductsFromCategory = new Gson().toJson(productsFromGender);
+
+        if(productsFromGender != null){
+            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific gender loaded",2);
+            return Response.status(200).type("application/json").entity(getProductsFromCategory).build();
+
+        }else {
+            return Response.status(204).type("text/plain").entity("No product for this gender").build();
         }
     }
 

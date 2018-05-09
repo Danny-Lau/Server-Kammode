@@ -3,21 +3,17 @@ package server.models;
 public class Product {
    private int productID;
    private String productDescription;
-   private int stock;
    private int sellerID;
    private String price;
-   private String variant;
    private String gender;
    private String url;
    private String category;
 
 
-    public Product(String productDescription, int stock, int sellerID, String price, String variant, String gender, String url, String category) {
+    public Product(String productDescription, int sellerID, String price,  String gender, String url, String category) {
         this.productDescription = productDescription;
-        this.stock = stock;
         this.sellerID = sellerID;
         this.price = price;
-        this.variant = variant;
         this.gender = gender;
         this.url = url;
         this.category = category;
@@ -46,13 +42,7 @@ public class Product {
         this.productDescription = productDescription;
     }
 
-    public int getStock() {
-        return stock;
-    }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
 
     public int getSellerID() {
         return sellerID;
@@ -70,13 +60,6 @@ public class Product {
         this.price = price;
     }
 
-    public String getVariant() {
-        return variant;
-    }
-
-    public void setVariant(String variant) {
-        this.variant = variant;
-    }
 
     public String getGender() {
         return gender;
