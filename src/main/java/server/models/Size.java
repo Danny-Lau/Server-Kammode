@@ -1,9 +1,9 @@
 package server.models;
 
 public class Size {
-    int sizeId, size, stock, productId;
-
-    public Size(int sizeId, int size, int stock, int productId) {
+    int sizeId, stock, productId;
+    String size;
+    public Size(int sizeId, String size, int stock, int productId) {
         this.sizeId = sizeId;
         this.size = size;
         this.stock = stock;
@@ -21,11 +21,11 @@ public class Size {
         this.sizeId = sizeId;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

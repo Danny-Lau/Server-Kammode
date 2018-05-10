@@ -203,7 +203,7 @@ public class DbManager {
             PreparedStatement createSize = connection
                     .prepareStatement("INSERT INTO størelse (Størelse, antal, vare_vare_id) VALUES (?,?,?);", Statement.RETURN_GENERATED_KEYS);
 
-            createSize.setInt(1, size.getSize());
+            createSize.setString(1, size.getSize());
             createSize.setInt(2, size.getStock());
             createSize.setInt(3, size.getProductId());
 
@@ -356,7 +356,7 @@ public class DbManager {
     public boolean deleteProduct(int productId) throws IllegalArgumentException{
         try {
             PreparedStatement deleteProduct = connection
-                    .prepareStatement("DELETE FROM vare WHERE vare_id = ?");
+                    .prepareStatement("DELETE vare WHERE vare_id = ? ");
             deleteProduct.setInt( 1, productId);
             int rowsaffected = deleteProduct.executeUpdate();
             if(rowsaffected == 1){
@@ -395,9 +395,9 @@ public class DbManager {
             resultSet = loadVare.executeQuery();
             while (resultSet.next()){
                 Product product = new Product();
-                product.setProductID(resultSet.getInt("vare_id"));
+                product.setProductId(resultSet.getInt("vare_id"));
                 product.setPrice(resultSet.getString("pris"));
-                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id1"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 allProduct.add(product);
             }
@@ -424,9 +424,9 @@ public class DbManager {
 
             while (resultSet.next()){
                 Product product = new Product();
-                product.setProductID(resultSet.getInt("vare_id"));
+                product.setProductId(resultSet.getInt("vare_id"));
                 product.setPrice(resultSet.getString("pris"));
-                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id1"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 product.setGender(resultSet.getString("gender"));
                 product.setUrl(resultSet.getString("url"));
@@ -449,7 +449,7 @@ public class DbManager {
         ResultSet resultSet = null;
         ArrayList<Size> allSizeFromProductId = new ArrayList<>();
         try{
-            PreparedStatement getSizeFromProductId = connection.prepareStatement("SELECT * FROM størelser WHERE vare_vare_id = ? ");
+            PreparedStatement getSizeFromProductId = connection.prepareStatement("SELECT * FROM størelse WHERE vare_vare_id = ? ");
             getSizeFromProductId.setInt(1, productId);
 
             resultSet = getSizeFromProductId.executeQuery();
@@ -457,7 +457,7 @@ public class DbManager {
             while (resultSet.next()){
                 Size size = new Size();
                 size.setSizeId(resultSet.getInt("størelse_id"));
-                size.setSize(resultSet.getInt("Størelse"));
+                size.setSize(resultSet.getString("Størelse"));
                 size.setProductId(resultSet.getInt("vare_vare_id"));
                 size.setStock(resultSet.getInt("antal"));
                 allSizeFromProductId.add(size);
@@ -512,9 +512,9 @@ public class DbManager {
 
             while (resultSet.next()){
                 Product product = new Product();
-                product.setProductID(resultSet.getInt("vare_id"));
+                product.setProductId(resultSet.getInt("vare_id"));
                 product.setPrice(resultSet.getString("pris"));
-                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id1"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 product.setGender(resultSet.getString("gender"));
                 product.setUrl(resultSet.getString("url"));
@@ -545,9 +545,9 @@ public class DbManager {
 
             while (resultSet.next()){
                 Product product = new Product();
-                product.setProductID(resultSet.getInt("vare_id"));
+                product.setProductId(resultSet.getInt("vare_id"));
                 product.setPrice(resultSet.getString("pris"));
-                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id1"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 product.setGender(resultSet.getString("gender"));
                 product.setUrl(resultSet.getString("url"));
@@ -570,16 +570,16 @@ public class DbManager {
         ResultSet resultSet = null;
         ArrayList<Product> allProductFromSellerId = new ArrayList<>();
         try{
-            PreparedStatement getProductsFromSellerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id = ? ");
+            PreparedStatement getProductsFromSellerID = connection.prepareStatement("SELECT * FROM vare WHERE sælger_sælger_id1 = ? ");
             getProductsFromSellerID.setInt(1, sellerId);
 
             resultSet = getProductsFromSellerID.executeQuery();
 
             while (resultSet.next()){
                 Product product = new Product();
-                product.setProductID(resultSet.getInt("vare_id"));
+                product.setProductId(resultSet.getInt("vare_id"));
                 product.setPrice(resultSet.getString("pris"));
-                product.setSellerID(resultSet.getInt("sælger_sælger_id"));
+                product.setSellerID(resultSet.getInt("sælger_sælger_id1"));
                 product.setProductDescription(resultSet.getString("vare_beskrivelse"));
                 product.setGender(resultSet.getString("gender"));
                 product.setUrl(resultSet.getString("url"));
@@ -691,7 +691,7 @@ public class DbManager {
     public Product createProduct(Product product) throws IllegalArgumentException{
         //Try-catch method to avoid the program crashing on exceptions
         try{
-            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, sælger_sælger_id, pris, gender, url, kategori) VALUES(?, ?, ?,?,?,?,)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement createProduct = connection.prepareStatement("INSERT INTO vare (vare_beskrivelse, sælger_sælger_id1, pris, gender, url, kategori) VALUES(?, ?, ?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             createProduct.setString(1, product.getProductDescription());
             createProduct.setInt(2, product.getSellerID());
             createProduct.setString(3, product.getPrice());
@@ -701,11 +701,11 @@ public class DbManager {
 
             //rowsAffected
             int rowsaffected = createProduct.executeUpdate();
-            if(rowsaffected ==1){
+            if(rowsaffected == 1){
                 ResultSet resultSet = createProduct.getGeneratedKeys();
                 if(resultSet != null && resultSet.next()){
                     int autoIncrementedProductId = resultSet.getInt(1);
-                    product.setProductID(autoIncrementedProductId);
+                    product.setProductId(autoIncrementedProductId);
                 } else {
                     product = null;
                 }

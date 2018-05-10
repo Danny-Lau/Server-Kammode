@@ -1,7 +1,7 @@
 package server.models;
 
 public class Product {
-   private int productID;
+   private int productId;
    private String productDescription;
    private int sellerID;
    private String price;
@@ -26,12 +26,12 @@ public class Product {
 
 
 
-    public int getProductID() {
-        return productID;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getProductDescription() {
@@ -41,7 +41,6 @@ public class Product {
     public void setProductDescription(String productDescription) {
         this.productDescription = productDescription;
     }
-
 
 
     public int getSellerID() {

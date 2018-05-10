@@ -60,7 +60,7 @@ public class ProductEndpoint {
         String newProductSize = new Gson().toJson(db.createSize(ProductSize));
 
         if(newProductSize != null){
-            Globals.log.writeLog(this.getClass().getName(), this, "Product created", 2);
+            Globals.log.writeLog(this.getClass().getName(), this, "Product size created", 2);
             return Response.status(200).type("application/json").entity(new Gson().toJson(newProductSize)).build();
         } else {
             Globals.log.writeLog(this.getClass().getName(), this, "No input to new Product", 2);
@@ -91,7 +91,7 @@ public class ProductEndpoint {
         String getProductsFromSellerID = new Gson().toJson(productsFromProductsId);
 
         if(productsFromProductsId != null){
-            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific product ID loaded",2);
+            Globals.log.writeLog(this.getClass().getName(), this, "Product from specific product ID loaded",2);
             return Response.status(200).type("application/json").entity(getProductsFromSellerID).build();
 
         }else {
@@ -106,7 +106,7 @@ public class ProductEndpoint {
         String SizeFromIDOout = new Gson().toJson(sizeFromProductsId);
 
         if(sizeFromProductsId != null){
-            Globals.log.writeLog(this.getClass().getName(), this, "Products from specific product ID loaded",2);
+            Globals.log.writeLog(this.getClass().getName(), this, "size from specific product ID loaded",2);
             return Response.status(200).type("application/json").entity(SizeFromIDOout).build();
 
         }else {
