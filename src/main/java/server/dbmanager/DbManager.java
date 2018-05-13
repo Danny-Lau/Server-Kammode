@@ -356,7 +356,7 @@ public class DbManager {
     public boolean deleteProduct(int productId) throws IllegalArgumentException{
         try {
             PreparedStatement deleteProduct = connection
-                    .prepareStatement("DELETE vare WHERE vare_id = ? ");
+                    .prepareStatement("DELETE FROM vare WHERE vare_id = ? ");
             deleteProduct.setInt( 1, productId);
             int rowsaffected = deleteProduct.executeUpdate();
             if(rowsaffected == 1){
