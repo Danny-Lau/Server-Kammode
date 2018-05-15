@@ -18,12 +18,5 @@ public class SellerController {
         return ifDeleted;
     }
 
-    public Seller createSeller(Seller seller) {
-        DbManager dbManager = new DbManager();
-
-
-        return dbManager.createSeller(seller);
-    }
-
 
 }

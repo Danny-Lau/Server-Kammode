@@ -54,11 +54,13 @@ public class SellerEndpoint {
         @POST
         @Path("/creatSeller")
         public Response creatSeller(@HeaderParam("authorization") String token, String seller) throws SQLException {
-                        Seller sellerCreated = sellerController.createSeller(new Gson().fromJson(seller, Seller.class));
-                        String newSeller = new Gson().toJson(sellerCreated);
+                       Seller sellerOut = null;
+                        Seller sellerCreated = new Gson().fromJson(seller, Seller.class);
+                        sellerOut = db.createSeller(sellerCreated);
+                        String newSeller = new Gson().toJson(sellerOut);
                         newSeller = crypter.encryptAndDecryptXor(newSeller);
 
-                        if (sellerCreated != null) {
+                        if (sellerOut != null) {
                                 Globals.log.writeLog(this.getClass().getName(), this, "Seller created", 2);
                                 return Response.status(200).type("application/json").entity(new Gson().toJson(newSeller)).build();
                         } else {

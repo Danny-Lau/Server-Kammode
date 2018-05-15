@@ -232,12 +232,13 @@ public class DbManager {
         try {
             //SQL statement
             PreparedStatement createSeller = connection
-                    .prepareStatement("INSERT INTO sælger (firma_navn, cvr, mail, password) VALUES (?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
+                    .prepareStatement("INSERT INTO sælger (firma_navn, cvr, mail, password, nummer) VALUES (?, ?, ?, ?, ?);", Statement.RETURN_GENERATED_KEYS);
             //Setting parameters for user object
             createSeller.setString( 1, seller.getCompanyName());
             createSeller.setString( 2, seller.getCvr());
             createSeller.setString( 3, seller.getMail());
             createSeller.setString( 4, seller.getPassword());
+            createSeller.setString(5, seller.getNumber());
 
 
             int rowsAffected = createSeller.executeUpdate();
